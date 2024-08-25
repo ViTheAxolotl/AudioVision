@@ -1,8 +1,7 @@
 "use strict";
 import { signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-import { toTitleCase, auth, database } from '../js/viMethods.js';
+import { toTitleCase, auth, clenseInput } from '../js/viMethods.js';
 
-let url = window.location.href.split("/");
 let player;
 let username, password, backBtn, loginBtn;
 
@@ -30,7 +29,7 @@ function handleLoginBtn()
         }
     }
 
-    login(`${toTitleCase(user)}@ForgottenRealms.com`, toTitleCase(pass));
+    login(`${clenseInput(toTitleCase(user))}@AudioVison.com`, toTitleCase(pass));
 }
 
 function login(email, password)

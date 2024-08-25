@@ -5,13 +5,13 @@ import { getAuth } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth
 
 const firebaseApp = initializeApp
 ({
-    apiKey: "AIzaSyArcsmJkXSeuIHMysYtIzRdjIDlKNQA25Y",
-    authDomain: "forgottenrealmsmap.firebaseapp.com",
-    projectId: "forgottenrealmsmap",
-    storageBucket: "forgottenrealmsmap.appspot.com",
-    messagingSenderId: "697902154695",
-    appId: "1:697902154695:web:ffa5c47817f3097c89cfe2",
-    measurementId: "G-Q2W494NRDT"
+    apiKey: "AIzaSyA7jIkT6PTw3QClLw0m9mXt-224g31KVwg",
+    authDomain: "audiovision-1cfae.firebaseapp.com",
+    projectId: "audiovision-1cfae",
+    storageBucket: "audiovision-1cfae.appspot.com",
+    messagingSenderId: "563112942762",
+    appId: "1:563112942762:web:bad4f65c14a77cf4e5c4d3",
+    measurementId: "G-43ED9RXG6J"
 }); //Connects to database
 
 export let auth = getAuth(); //Logs into accounts
