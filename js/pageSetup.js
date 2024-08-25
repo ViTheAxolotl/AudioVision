@@ -81,9 +81,16 @@ function navBarSetup()
         <div class="collapse navbar-collapse" id="navbarSupportedContent"> 
             <ul class="navbar-nav me-auto my-2 my-lg-0 " style="--bs-scroll-height: 100px;"> 
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="${mainLocation}index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="${mainLocation}mapAndTowns.html">Letters</a></li>
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="${mainLocation}recap.html">Numbers</a></li> 
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="${mainLocation}itemIndex.html">Bathroom</a></li>);    
+                <li class="nav-item dropdown"> 
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Catagories
+                    </a>
+                    <ul class="dropdown-menu bg-dark" aria-labelledby="navbarScrollingDropdown">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="${mainLocation}mapAndTowns.html">Letters</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="${mainLocation}recap.html">Numbers</a></li> 
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="${mainLocation}itemIndex.html">Bathroom</a></li>);
+                    </ul>
+                </li>
                 ${log}
             </ul>
         </div>`;
