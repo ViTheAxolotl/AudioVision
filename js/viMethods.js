@@ -45,38 +45,6 @@ export function toTitleCase(word)
 
 /**
  * 
- * @param {*} title 
- * @param {*} text 
- * @param {*} location 
- * Creates cards base on their title and text, it places these cards at location given.
- */
-export function createCard(title, text, location)
-{
-    let cardDiv = document.createElement("div");
-    cardDiv.setAttribute("class", "card .bg-UP-blue notes");
-    let cardBody = document.createElement("div");
-    cardBody.setAttribute("class", "card-body notes");
-    let cardTitle = document.createElement("h5");
-    cardTitle.setAttribute("class", "card-title");
-    cardTitle.innerHTML = title;
-    cardBody.appendChild(cardTitle);
-
-    for(let i = 0; i < text.length; i++) //For each sentence in the card
-    {
-        let cardText = document.createElement("p");
-        cardText.setAttribute("class", "card-text");
-        cardText.style.margin = "3px";
-        cardText.innerHTML = text[i];
-        cardBody.appendChild(cardText);
-    }
-    
-    let noteDisplay = document.getElementById(location);
-    noteDisplay.appendChild(cardDiv);
-    cardDiv.appendChild(cardBody);
-}
-
-/**
- * 
  * @param {*} path 
  * @param {*} toChange 
  * Sets the doc at path to the new value toChange
@@ -94,54 +62,6 @@ export function setDoc(path, toChange)
 export function deleteDoc(path)
 {
     set(ref(database, path), null);
-}
-
-export function returnHpImage(maxHp, tempHp, currentHp)
-{
-    let fraction = parseInt(currentHp) / parseInt(maxHp);
-
-    if(tempHp != null)
-    {
-        if(tempHp != "0")
-        {
-            return "images/map/hpBar/tempHp.png";
-        }
-    }
-
-    if(maxHp == "0" && currentHp == "0")
-    {
-        return "images/map/hpBar/invisible.png";
-    }
-
-    else if(fraction == 1)
-    {
-        return "images/map/hpBar/hpBar1.png";
-    }
-
-    else if(fraction >= .8)
-    {
-        return "images/map/hpBar/hpBar2.png";
-    }
-
-    else if(fraction >= .6)
-    {
-        return "images/map/hpBar/hpBar3.png";
-    }
-
-    else if(fraction >= .4)
-    {
-        return "images/map/hpBar/hpBar4.png";
-    }
-
-    else if(fraction > 0)
-    {
-        return "images/map/hpBar/hpBar5.png";
-    }
-
-    else if(fraction == 0)
-    {
-        return "images/map/hpBar/hpBar6.png";
-    }  
 }
 
 /**
