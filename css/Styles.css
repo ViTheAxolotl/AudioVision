@@ -48,7 +48,7 @@ body
     text-align: center;
     margin-top: 20px;
     background-color: #2e9200;
-    color: #2316e6;
+    color: #000000;
 }
 
 #footer
@@ -57,12 +57,7 @@ body
     padding-bottom: 10px;
     margin: 20px 0px;
     background-color: #2e9200;
-    color: #ffae00;
-}
-
-#credits, #info
-{
-    text-align: center;
+    color: #000000;
 }
 
 #credits
