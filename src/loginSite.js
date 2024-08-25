@@ -29,7 +29,7 @@ function handleLoginBtn()
         }
     }
 
-    login(`${clenseInput(toTitleCase(user))}@AudioVison.com`, toTitleCase(pass));
+    login(`${clenseInput(toTitleCase(user))}@AudioVision.com`, toTitleCase(pass));
 }
 
 function login(email, password)
