@@ -20,7 +20,7 @@ body
 
 .bg-AV-grey
 {
-    background-color: rgb(70, 70, 70);
+    background-color: #5e5e5e;
 }
 
 .color-AV-orange
@@ -116,7 +116,7 @@ button
     width: 100%;
     padding: 5px;
     margin: 5px 0px;
-    background-color: grey;
+    background-color: #5e5e5e;
     color: #2316e6;
 }
 
@@ -138,7 +138,7 @@ button
   
 .navbar-primary .navbar-toggler 
 {
-    border-color: grey; 
+    border-color: #5e5e5e; 
     width: 56px;
 } 
 
