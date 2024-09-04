@@ -104,7 +104,6 @@ h5
     text-decoration: underline;
 }
 
-
 button
 {
     text-align: center;
@@ -119,7 +118,6 @@ button
 {
     margin-bottom: 20px;
 }
-
 
 .textLeftAlign
 {
@@ -147,11 +145,6 @@ button
 .navbar-nav .nav-link.active, .nav-link
 {
     color: #0d6efd;
-}
-
-button .link-primary 
-{
-    background-color: #5e5e5e !important;
 }
 
 .center
