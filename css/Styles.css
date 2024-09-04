@@ -1,6 +1,6 @@
 body
 {
-    background: grey;
+    background: #424242;
 }
 
 .bg-AV-blue
@@ -124,6 +124,13 @@ button
 .textLeftAlign
 {
     text-align: left;
+}
+
+.nav-item
+{
+    text-align: center !important;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .navbar-primary .navbar-toggler-icon 
