@@ -167,7 +167,7 @@ function handleViewTokens()
             holdingDiv.appendChild(label);
         }
 
-        placeBefore(holdingDiv, document.getElementById("viewToken"))
+        placeBefore(holdingDiv, document.getElementById("showInstructions"))
     }
 }
 
@@ -254,13 +254,13 @@ function createCoverAndHelp()
     instructions.id = "showInstructions";
     instructions.style.padding = "10px";
     coverDiv.appendChild(instructions);
-    placeBefore(coverDiv, div[0].firstChild);
 
     let helpBtn = document.createElement("img");
     helpBtn.id = "helpBtn";
     helpBtn.src = "images/helpBtn.png";
     helpBtn.onclick = handleViewTokens;
     placeBefore(helpBtn, div[0].firstChild);
+    placeBefore(coverDiv, div[0].firstChild);
 }
 
 init();
