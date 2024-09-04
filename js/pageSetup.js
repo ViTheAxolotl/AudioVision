@@ -61,7 +61,7 @@ onAuthStateChanged(auth, (user) => {
         // User is signed out
         log = `</ul>
             </div>
-            <a class="navbar-brand" style="float = right" href="${mainLocation}loginPage.html?${url.slice(-1)}"><button class="link-primary bg-UP-grey">Login</button></a>);`;
+            <a class="navbar-brand" style="float = right" href="${mainLocation}loginPage.html?${url.slice(-1)}"><button class="link-primary bg-UP-grey">Login</button></a>`;
     }
 
     navBarSetup();
