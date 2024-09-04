@@ -253,13 +253,13 @@ function createCoverAndHelp()
     instructions.id = "showInstructions";
     instructions.style.padding = "10px";
     coverDiv.appendChild(instructions);
-    div.appendChild(coverDiv);
+    div[0].appendChild(coverDiv);
 
     let helpBtn = document.createElement("img");
     helpBtn.id = "helpBtn";
     helpBtn.src = "images/helpBtn.png";
     helpBtn.onclick = handleViewTokens;
-    div.appendChild(helpBtn);
+    div[0].appendChild(helpBtn);
 }
 
 init();
