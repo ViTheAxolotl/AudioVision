@@ -233,6 +233,7 @@ function createCoverAndHelp()
     let coverDiv = document.createElement("div");
     coverDiv.classList = "invisible";
     coverDiv.style.zIndex = "1011";
+    coverDiv.id = "cover";
     
     let hideCoverBtn = document.createElement("button");
     hideCoverBtn.id = "hideCover";
@@ -253,13 +254,13 @@ function createCoverAndHelp()
     instructions.id = "showInstructions";
     instructions.style.padding = "10px";
     coverDiv.appendChild(instructions);
-    div[0].appendChild(coverDiv);
+    placeBefore(coverDiv, div[0].firstChild);
 
     let helpBtn = document.createElement("img");
     helpBtn.id = "helpBtn";
     helpBtn.src = "images/helpBtn.png";
     helpBtn.onclick = handleViewTokens;
-    div[0].appendChild(helpBtn);
+    placeBefore(helpBtn, div[0].firstChild);
 }
 
 init();
