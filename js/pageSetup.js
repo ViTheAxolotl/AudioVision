@@ -1,7 +1,7 @@
 "use strict";
 import { ref, onValue } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js';
 import { onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-import { toTitleCase, auth, database, insertBefore, placeBefore } from './viMethods.js';
+import { toTitleCase, auth, database, placeBefore } from './viMethods.js';
 
 let log;
 let isLoggedIn = false;
