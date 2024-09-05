@@ -35,12 +35,12 @@ onAuthStateChanged(auth, (user) =>
 
     else
     {
-        player = auth.currentUser.email.split("@");
-        player = toTitleCase(player[0]);
+        user = auth.currentUser.email.split("@");
+        user = toTitleCase(user[0]);
     }
 });
 
-let player;
+let user;
 let wholeAccounts = {};
 let wholeCategory = {};
 let firstRun = true;
