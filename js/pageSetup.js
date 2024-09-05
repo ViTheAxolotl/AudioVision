@@ -122,7 +122,6 @@ function copyrightSetup()
 function handleViewTokens()
 {
     let viewDiv = document.getElementById("cover");
-    let i = 0;
     let y = 2;
     let title;
 
@@ -146,7 +145,6 @@ function handleViewTokens()
     if(this.id == "helpBtn")
     {
         let instructions = document.createElement("h3");
-        let labels = ["Map", "Stats", "Actions", "Favorites"];
         let holdingDiv = document.createElement("div");
         holdingDiv.id = "holdingDiv";
         holdingDiv.classList.add("center");
@@ -156,57 +154,37 @@ function handleViewTokens()
         instructions.style.color = "black";
         holdingDiv.appendChild(instructions);
 
-        for(let i = 0; i < labels.length; i++)
-        {
-            let label = document.createElement("button");
-            label.innerHTML = labels[i];
-            label.classList.add("gridButton");
-            label.style.margin = "3px";
-            label.name = labels[i];
-            label.onclick = changeInstructions;
-            holdingDiv.appendChild(label);
-        }
-
         placeBefore(holdingDiv, document.getElementById("showInstructions"))
+        changeInstructions();
     }
 }
 
 function changeInstructions()
 {
-    let labels = ["Map", "Stats", "Actions", "Favorites"];
-    let fill = ["The map will change once a character moves, if you click on a character you can see it enlarged. If you click on one of your own summons you will become it.", "The stats section contains controls to change the maps status. To move your token you can use the D-Pad or hold Ctrl and the arrow key. You can also change your token through keywords in the status:", "Here is all the spells and abilities for your characters. You can search or scroll to find the spell/ability you wish to use. Once you find it click on it, from here you can use the ability or add it to your favorites. Abilities that have a {@ will preform actions on cast. Then it will display the results on the display section on the webpage.", "In this section it will show your spells and actions you have favorited, this can be used to organize your abilities. If you click on one of the abilities it will let you edit them. You can also create custom abilites and spells from here. If you wish to create a button to better organise your abilites, all you need to do is select edit on the ability and change the Tag into what you want."];
-    let keyWords = {"Large" : "This will make your token a large creature taking up a 2 x 2 square.", "Huge" : "This will make your token a huge creature taking up a 3 x 3 square.", "Gargantuan" : "This will make your token an Gargantuan creature taking up a 4 x 4 square.", "Top" : "This will make your token on top of other tokens.", "Bottom" : "This will make your token underneath others.", "Invisible" : "This will make only you be able to see your token."};
+    let gamesDesc = {"Basketball" : ""};
     let display = document.getElementById("showInstructions");
+    let page = window.location.href;
+    page = page.split("/");
+    page = page[page.length - 1];
+    page = page.split(".");
+    page = page[0];
 
-    for(let label of labels)
+    switch(page)
     {
-        let button = document.getElementsByName(label);
-        
-        if(this.name == button[0].name)
-        {
-            this.classList.add("selected");
-        }
-
-        else
-        {
-            button[0].classList = "gridButton";
-        }
-    }
-
-    switch(this.name)
-    {
-        case "Stats":
-            display.innerHTML = fill[labels.indexOf(this.name)];
-            display.innerHTML += "<ul>";
-            for(let key of Object.keys(keyWords)){display.innerHTML += `<li>${key}: ${keyWords[key]}</li>`}
-            display.innerHTML += "</ul>";
+        case "":
+        case "index":
+            display.innerHTML = "Welcome to AudioVision, to begin click the Login button on the top right. After chose which category you wish to start with.";
             break;
 
-        case "Map":
-        case "Actions":
-        case "Favorites":
-            display.innerHTML = fill[labels.indexOf(this.name)];
+        case "loginPage":
+            display.innerHTML = "To login type your username and password given to you by Vi. If you need the info again, reach out to Vi.";
             break;
+
+        case "game":
+            break; //Different games
+
+        case "match":
+            break; //Word to image page
     }
 }
 
@@ -237,7 +215,7 @@ function createCoverAndHelp()
     
     let hideCoverBtn = document.createElement("button");
     hideCoverBtn.id = "hideCover";
-    hideCoverBtn.classList = "invisible hbhbhbhb";
+    hideCoverBtn.classList = "invisible bg-AV-blue";
     hideCoverBtn.style.zIndex = "1012";
     hideCoverBtn.innerHTML = "Exit";
     hideCoverBtn.onclick = hideCover;
