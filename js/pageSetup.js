@@ -185,6 +185,10 @@ function changeInstructions()
 
         case "match":
             break; //Word to image page
+
+        case "addImage":
+            display.innerHTML = "Use to add item to database. Type name of files, what category it belongs to, and the file extension of the sound (.wav if I did it). Once enter is hit it will cleanse the input and add it to the database.";
+            break;
     }
 }
 

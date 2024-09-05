@@ -20,6 +20,8 @@ onValue(accountsRef, (snapshot) =>
     }
 });
 
+let categoryRef;
+
 /**
  * Checks if user is logged in, if they aren't send them to loginPage
  */
@@ -40,6 +42,7 @@ onAuthStateChanged(auth, (user) =>
 
 let player;
 let wholeAccounts = {};
+let wholeCategory = {};
 let firstRun = true;
 let category = window.location.href;
 
@@ -52,5 +55,10 @@ function init()
     category = category[1];
     setDoc(`Accounts/${user}/category`, category);
 
-    "../sounds/household/toilet.wav"
+    categoryRef = ref(database, `${category}/`);
+    onValue(accountsRef, (snapshot) => 
+    {
+        const data = snapshot.val();
+        wholeCategory = data;
+    });
 }
