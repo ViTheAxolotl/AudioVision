@@ -19,9 +19,9 @@ let categoryRef;
 /**
  * Checks if user is logged in, if they aren't send them to loginPage
  */
-onAuthStateChanged(auth, (user) => 
+onAuthStateChanged(auth, (person) => 
 {
-    if (!user) //If user isn't logged in
+    if (!person) //If user isn't logged in
     {
         alert("You need to login before using this resource. Click Ok and be redirected");
         window.location.href = "loginPage.html?match.html"; 
@@ -31,7 +31,6 @@ onAuthStateChanged(auth, (user) =>
     {
         user = auth.currentUser.email.split("@");
         user = toTitleCase(user[0]);
-        alert(user);
         init();
     }
 });
