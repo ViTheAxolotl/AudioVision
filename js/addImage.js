@@ -43,8 +43,8 @@ function handleSubmit()
         name : name,
         src : `../images/${category}/${name}.png`,
         correct : false,
-        sound : `../images/${category}/${name.}`
-    }
+        sound : `../images/${category}/${name}`
+    };
     
     object.sound += sound;
     setDoc(`${category}/${name}`, object);
