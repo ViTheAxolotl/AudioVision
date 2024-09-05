@@ -25,7 +25,6 @@ onAuthStateChanged(auth, (user) =>
 let player;
 let name = document.getElementById("name");
 let category = document.getElementById("category");
-let img = document.getElementById("img");
 let sound = document.getElementById("sound");
 let submit = document.getElementById("submit")
 
@@ -41,11 +40,12 @@ function handleSubmit()
 {
     let object = {
         name : name.value,
-        src : img.value,
+        src : `../images/${category}/${name}.png`,
         correct : false,
-        sound : sound.value
+        sound : `../images/${category}/${name}`
     }
     
+    object.sound += sound.value;
     setDoc(`${category.value}/${name}`, object);
 }
 
