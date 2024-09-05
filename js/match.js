@@ -51,7 +51,7 @@ function init()
     setDoc(`Accounts/${user}/category`, category);
 
     categoryRef = ref(database, `${category}/`);
-    onValue(accountsRef, (snapshot) => 
+    onValue(categoryRef, (snapshot) => 
     {
         const data = snapshot.val();
         wholeCategory = data;
