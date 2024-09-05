@@ -3,6 +3,7 @@
 import { ref, onValue } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js';
 import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 import { toTitleCase, auth, database, setDoc, deleteDoc, placeBefore } from './viMethods.js';
+import { doc } from 'firebase/firestore/lite';
 
 /**
  * When anything under this changes it will use onValue
@@ -38,7 +39,7 @@ onAuthStateChanged(auth, (user) =>
 let user;
 let wholeAccounts = {};
 let wholeCategory = {};
-let firstRun = true;
+let div = document.getElementById("match");
 let category = window.location.href;
 
 /**
@@ -56,4 +57,16 @@ function init()
         const data = snapshot.val();
         wholeCategory = data;
     });
+
+    let begin = document.createElement("button");
+    begin.onclick = handleBegin;
+    begin.innerHTML = "Begin"
+    begin.classList.add("center");
+    begin.id = "begin";
+    div.appendChild(begin);
+}
+
+function handleBegin()
+{
+    document.getElementById("begin").remove();
 }

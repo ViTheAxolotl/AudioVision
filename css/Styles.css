@@ -101,7 +101,7 @@ p
     text-indent: 30px;
 }
 
-#info, #credits, #footer, #header, #login
+#info, #credits, #footer, #header, #login, #match
 {
     border: #555555 4px solid;
     padding: 10px 10px 0px 10px;
@@ -215,6 +215,11 @@ button
 {
     display: block;
     width: 80%;
+}
+
+#match
+{
+    min-height: 80%;
 }
 
 @media (max-width: 1399px) 
