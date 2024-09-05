@@ -211,6 +211,12 @@ button
     left: 3%;
 }
 
+.addImage
+{
+    display: block;
+    width: "80%";
+}
+
 @media (max-width: 1399px) 
 {
     .col-md-6
