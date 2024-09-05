@@ -32,6 +32,7 @@ onAuthStateChanged(auth, (user) =>
     {
         user = auth.currentUser.email.split("@");
         user = toTitleCase(user[0]);
+        alert(user);
         init();
     }
 });
