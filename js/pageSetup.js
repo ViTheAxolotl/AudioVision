@@ -215,7 +215,7 @@ function createCoverAndHelp()
     
     let hideCoverBtn = document.createElement("button");
     hideCoverBtn.id = "hideCover";
-    hideCoverBtn.classList = "invisible bg-AV-blue";
+    hideCoverBtn.classList = "invisible hbhbhbhb";
     hideCoverBtn.style.zIndex = "1012";
     hideCoverBtn.innerHTML = "Exit";
     hideCoverBtn.onclick = hideCover;
