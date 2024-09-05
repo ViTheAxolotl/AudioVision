@@ -47,7 +47,7 @@ let firstRun = true;
 let category = window.location.href;
 
 /**
- * Runs when user is logged in
+ * Runs when user is logged in sets up category
  */
 function init()
 {
