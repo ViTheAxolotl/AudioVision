@@ -2,7 +2,7 @@
 
 import { ref, onValue } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js';
 import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-import { toTitleCase, auth, database, setDoc, deleteDoc, placeBefore } from './viMethods.js';
+import { toTitleCase, auth, database, setDoc, deleteDoc, placeBefore, clenseInput } from './viMethods.js';
 
 /**
  * Checks if user is logged in, if they aren't send them to loginPage
@@ -35,9 +35,9 @@ function init()
 
 function handleSubmit()
 {
-    let name = document.getElementById("name").value.toLowerCase();
-    let category = document.getElementById("category").value.toLowerCase();
-    let sound = document.getElementById("sound").value.toLowerCase();
+    let name = clenseInput(document.getElementById("name").value.toLowerCase());
+    let category = clenseInput(document.getElementById("category").value.toLowerCase());
+    let sound = clenseInput(document.getElementById("sound").value.toLowerCase());
     
     let object = {
         name : name,
@@ -48,6 +48,7 @@ function handleSubmit()
     
     object.sound += sound;
     setDoc(`${category}/${name}`, object);
+    alert("Done!");
 }
 
 init();
