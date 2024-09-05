@@ -40,13 +40,13 @@ function handleSubmit()
 {
     let object = {
         name : name.value,
-        src : `../images/${category}/${name}.png`,
+        src : `../images/${category.value}/${name.value}.png`,
         correct : false,
-        sound : `../images/${category}/${name}`
+        sound : `../images/${category.value}/${name.value}`
     }
     
     object.sound += sound.value;
-    setDoc(`${category.value}/${name}`, object);
+    setDoc(`${category.value}/${name.value}`, object);
 }
 
 init();
