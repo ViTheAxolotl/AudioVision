@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name = "description" content = "Login to Forgotten Realms.">
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <!-- CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href = "css/Styles.css" rel = "stylesheet" />
+
+    <title>Add Image and Sound</title>
+  </head>
+  
+  <body>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-primary"> 
+        <script src="js/pageSetup.js" class="noParent" type="module"></script>
+    </nav>
+
+    <div class="container">
+      <div class="row align-items-top">
+        <div id = "header" class = "col-12">
+          <h1>Add Image or Sound</h1><br>
+        </div>
+
+        <div id = "login" class = "bg-AV-orange color-AV-black col-md-12 col-sm-12">
+          <input id = "name" type="text" placeholder="Name" />
+          <input id = "category" type="text" placeholder="Category" />
+          <input id = "img" type="text" placeholder="Image Location (../images/[category]/[image])" />
+          <input id = "sound" type="text" placeholder="Image Location (../sounds/[category]/[image])" />
+          <button id = "submit">Enter</button>
+        </div>
+
+        <div id = "footer" class = "col-12">
+        </div>
+      </div>
+	</div>
+
+     <!-- Bootstrap JavaScript Components-LOAD LAST -->
+     <script scr="js/bootstrap/scripts.js"></script>
+     <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
+     <script src="js/addImage.js" type = "module"></script>
+  </body>
+</html>
