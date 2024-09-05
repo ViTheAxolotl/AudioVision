@@ -23,9 +23,6 @@ onAuthStateChanged(auth, (user) =>
 });
 
 let player;
-let name = document.getElementById("name");
-let category = document.getElementById("category");
-let sound = document.getElementById("sound");
 let submit = document.getElementById("submit")
 
 /**
@@ -38,15 +35,19 @@ function init()
 
 function handleSubmit()
 {
+    let name = document.getElementById("name").value.toLowerCase();
+    let category = document.getElementById("category").value.toLowerCase();
+    let sound = document.getElementById("sound").value.toLowerCase();
+    
     let object = {
-        name : name.value,
-        src : `../images/${category.value}/${name.value}.png`,
+        name : name,
+        src : `../images/${category}/${name}.png`,
         correct : false,
-        sound : `../images/${category.value}/${name.value}`
+        sound : `../images/${category}/${name.}`
     }
     
-    object.sound += sound.value;
-    setDoc(`${category.value}/${name.value}`, object);
+    object.sound += sound;
+    setDoc(`${category}/${name}`, object);
 }
 
 init();
