@@ -60,7 +60,7 @@ function init()
     let begin = document.createElement("button");
     begin.onclick = handleBegin;
     begin.innerHTML = "Begin"
-    begin.classList.add("center");
+    begin.classList.add("center-full");
     begin.id = "begin";
     div.appendChild(begin);
 }
