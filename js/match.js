@@ -127,7 +127,7 @@ function getRandomItems()
     }
 
     buttons = randomizePlacement();
-    
+
     return buttons;
 }
 
@@ -136,11 +136,13 @@ function randomizePlacement()
     let temp = {};
     let itemList = Object.keys(buttons);
 
-    while(Object.keys(temp).length < Object.keys(buttons).length)
+    while(true)
     {
         let item = itemList[(Math.random() * itemList.length) | 0];
-        itemList.splice(item, 1);
         temp[item] = buttons[item];
+
+        if(itemList.length > 1){itemList.splice(item, 1);}
+        else{break;}
     }
 
     return temp;
