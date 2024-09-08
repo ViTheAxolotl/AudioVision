@@ -80,11 +80,15 @@ function handleBegin()
 
     switch(wholeAccounts[user].numOfCorrect)
     {
-        case 0, 1, 2:
+        case 0:
+        case 1:
+        case 2:
             numOfItems = 2;
             break;
         
-        case 3, 4, 5:
+        case 3:
+        case 4:
+        case 5:
             numOfItems = 3;
             break;
 
