@@ -76,7 +76,7 @@ function handleBegin()
     correct.correct = true;
     buttons[correct.name] = correct;
     
-    while(buttons.length < 2)
+    while(Object.keys(buttons).length < 2)
     {
         let temp = wholeCategory[items[(Math.random() * items.length) | 0]];
 
