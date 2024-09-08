@@ -74,6 +74,6 @@ function handleBegin()
 
     let correct = wholeCategory[items[(Math.random() * items.length) | 0]];
     correct.correct = true;
-    buttons["true"][correct.name] = correct;
+    buttons[correct.name] = correct;
     alert("complete");
 }
