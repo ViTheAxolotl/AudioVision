@@ -72,6 +72,8 @@ function handleBegin()
 
     document.getElementById("begin").remove();
 
-    buttons["true"] = wholeCategory[items[(Math.random() * items.length) | 0]];
-    
+    let correct = wholeCategory[items[(Math.random() * items.length) | 0]];
+    correct.correct = true;
+    buttons["true"][correct.name] = correct;
+
 }
