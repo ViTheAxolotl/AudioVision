@@ -75,5 +75,16 @@ function handleBegin()
     let correct = wholeCategory[items[(Math.random() * items.length) | 0]];
     correct.correct = true;
     buttons[correct.name] = correct;
-    alert("complete");
+    
+    while(buttons.length < 2)
+    {
+        let temp = wholeCategory[items[(Math.random() * items.length) | 0]];
+
+        if(!Object.keys(buttons).includes(temp.name))
+        {
+            buttons[temp.name] = temp;
+        }
+    }
+
+    alert("name");
 }
