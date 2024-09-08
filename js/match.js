@@ -126,7 +126,24 @@ function getRandomItems()
         }
     }
 
+    buttons = randomizePlacement();
+    
     return buttons;
+}
+
+function randomizePlacement()
+{
+    let temp = {};
+    let itemList = Object.keys(buttons);
+
+    while(Object.keys(temp).length < Object.keys(buttons).length)
+    {
+        let item = itemList[(Math.random() * itemList.length) | 0];
+        itemList.splice(item, 1);
+        temp[item] = buttons[item];
+    }
+
+    return temp;
 }
 
 function handleImageClick()
