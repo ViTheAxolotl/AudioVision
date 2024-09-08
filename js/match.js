@@ -80,8 +80,6 @@ function handleBegin()
 
         div.appendChild(image);
     }
-
-    alert("done");
 }
 
 function getRandomItems()
