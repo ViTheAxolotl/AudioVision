@@ -69,14 +69,35 @@ function handleBegin()
 {
     let buttons = {};
     let items = Object.keys(wholeCategory);
+    let numOfItems;
 
     document.getElementById("begin").remove();
+
+    if(!wholeAccounts[user].numOfCorrect)
+    {
+        setDoc(`Accounts/${user}/numOfCorrect`, 0);
+    }
+
+    switch(wholeAccounts[user].numOfCorrect)
+    {
+        case 0, 1, 2:
+            numOfItems = 2;
+            break;
+        
+        case 3, 4, 5:
+            numOfItems = 3;
+            break;
+
+        default:
+            numOfItems = 4;
+            break;
+    }
 
     let correct = wholeCategory[items[(Math.random() * items.length) | 0]];
     correct.correct = true;
     buttons[correct.name] = correct;
     
-    while(Object.keys(buttons).length < 2)
+    while(Object.keys(buttons).length < numOfItems)
     {
         let temp = wholeCategory[items[(Math.random() * items.length) | 0]];
 
