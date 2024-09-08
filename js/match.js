@@ -40,6 +40,7 @@ let wholeAccounts = {};
 let wholeCategory = {};
 let div = document.getElementById("match");
 let category = window.location.href;
+let buttons = {};
 
 /**
  * Runs when user is logged in sets up category
@@ -67,12 +68,28 @@ function init()
 
 function handleBegin()
 {
-    let buttons = {};
-    let items = Object.keys(wholeCategory);
-    let numOfItems;
-
+    getRandomItems();
     document.getElementById("begin").remove();
 
+    for(let items of Object.keys(buttons))
+    {
+        let image = document.createElement("img");
+        image.src = buttons[items].src;
+        image.id = items;
+        image.onclick = handleImageClick;
+
+        div.appendChild(image);
+    }
+
+    alert("done");
+}
+
+function getRandomItems()
+{
+    buttons = {};
+    let items = Object.keys(wholeCategory);
+    let numOfItems;
+    
     if(!wholeAccounts[user].numOfCorrect)
     {
         setDoc(`Accounts/${user}/numOfCorrect`, 0);
@@ -111,5 +128,18 @@ function handleBegin()
         }
     }
 
-    alert("name");
+    return buttons;
+}
+
+function handleImageClick()
+{
+    if(buttons[this.id].correct)
+    {
+        alert("correct");
+    }
+
+    else
+    {
+        alert("false");
+    }
 }
