@@ -67,5 +67,11 @@ function init()
 
 function handleBegin()
 {
+    let buttons = {};
+    let items = Object.keys(wholeCategory);
+
     document.getElementById("begin").remove();
+
+    buttons["true"] = wholeCategory[items[(Math.random() * items.length) | 0]];
+    
 }
