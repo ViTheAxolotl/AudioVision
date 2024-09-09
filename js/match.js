@@ -68,16 +68,28 @@ function init()
 
 function handleBegin()
 {
+    let soundBtn = document.createElement("button");
+    soundBtn.onclick = playSound;
+    soundBtn.id = "soundBtn";
+    
+    let soundImg = document.createElement("img");
+    soundImg.src = "../images/sound.png";
+    soundBtn.appendChild(soundImg);
+    div.appendChild(soundBtn);
+
     getRandomItems();
 
     for(let items of Object.keys(buttons))
     {
+        let btn = document.createElement("button");
+        btn.id = items;
+        btn.onclick = handleImageClick;
+
         let image = document.createElement("img");
         image.src = buttons[items].src;
-        image.id = items;
-        image.onclick = handleImageClick;
+        btn.appendChild(image);
 
-        div.appendChild(image);
+        div.appendChild(btn);
     }
 }
 
@@ -124,6 +136,7 @@ function getRandomItems()
     let correct = Object.keys(buttons);
     correct = correct[(Math.random() * correct.length) | 0];
     buttons[correct].correct = true;
+    document.getElementById("soundBtn").title = correct;
 
     return buttons;
 }
@@ -139,4 +152,9 @@ function handleImageClick()
     {
         alert("false");
     }
+}
+
+function playSound()
+{
+
 }
