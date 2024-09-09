@@ -12,12 +12,6 @@ onValue(accountsRef, (snapshot) =>
 {
     const data = snapshot.val();
     wholeAccounts = data;
-
-    if(firstRun)
-    {
-        handleBegin();
-        firstRun = false;
-    }
 });
 
 let categoryRef;
@@ -63,6 +57,12 @@ function init()
     {
         const data = snapshot.val();
         wholeCategory = data;
+
+        if(firstRun)
+        {
+            handleBegin();
+            firstRun = false;
+        }
     });
 }
 
