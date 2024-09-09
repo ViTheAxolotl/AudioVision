@@ -142,7 +142,7 @@ function getRandomItems()
     let correct = Object.keys(buttons);
     correct = correct[(Math.random() * correct.length) | 0];
     buttons[correct].correct = true;
-    document.getElementById("soundBtn").title = correct;
+    document.getElementById("soundBtn").title = buttons[correct].sound;
 
     return buttons;
 }
