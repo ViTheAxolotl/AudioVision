@@ -71,9 +71,10 @@ function handleBegin()
     let soundBtn = document.createElement("button");
     soundBtn.onclick = playSound;
     soundBtn.id = "soundBtn";
+    soundBtn.classList.add("imgBtn");
     
     let soundImg = document.createElement("img");
-    soundImg.src = "../images/sound.png";
+    soundImg.src = "images/sound.png";
     soundBtn.appendChild(soundImg);
     div.appendChild(soundBtn);
 
@@ -84,6 +85,7 @@ function handleBegin()
         let btn = document.createElement("button");
         btn.id = items;
         btn.onclick = handleImageClick;
+        btn.classList.add("imgBtn");
 
         let image = document.createElement("img");
         image.src = buttons[items].src;
