@@ -42,6 +42,7 @@ let div = document.getElementById("match");
 let category = window.location.href;
 let buttons = {};
 let firstRun = true;
+var snd;
 
 /**
  * Runs when user is logged in sets up category
@@ -161,5 +162,6 @@ function handleImageClick()
 
 function playSound()
 {
-
+    snd = new Audio(this.title);
+    snd.play();
 }
