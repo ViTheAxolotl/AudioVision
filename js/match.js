@@ -12,6 +12,12 @@ onValue(accountsRef, (snapshot) =>
 {
     const data = snapshot.val();
     wholeAccounts = data;
+
+    if(firstRun)
+    {
+        handleBegin();
+        firstRun = false;
+    }
 });
 
 let categoryRef;
@@ -41,6 +47,7 @@ let wholeCategory = {};
 let div = document.getElementById("match");
 let category = window.location.href;
 let buttons = {};
+let firstRun = true;
 
 /**
  * Runs when user is logged in sets up category
@@ -57,8 +64,6 @@ function init()
         const data = snapshot.val();
         wholeCategory = data;
     });
-
-    handleBegin();
 }
 
 function handleBegin()
