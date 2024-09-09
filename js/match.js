@@ -72,6 +72,7 @@ function handleBegin()
     soundBtn.onclick = playSound;
     soundBtn.id = "soundBtn";
     soundBtn.classList.add("imgBtn");
+    soundBtn.classList.add("center");
     
     let soundImg = document.createElement("img");
     soundImg.src = "images/sound.png";
@@ -87,6 +88,7 @@ function handleBegin()
         btn.id = items;
         btn.onclick = handleImageClick;
         btn.classList.add("imgBtn");
+        btn.classList.add("center");
 
         let image = document.createElement("img");
         image.src = buttons[items].src;
