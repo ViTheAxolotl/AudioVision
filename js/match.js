@@ -163,6 +163,6 @@ function handleImageClick()
 function playSound()
 {
     snd = new Audio(this.title);
-    snd.volume = 0.3;
+    snd.volume = 0.1;
     snd.play();
 }
