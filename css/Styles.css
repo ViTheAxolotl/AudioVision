@@ -232,6 +232,12 @@ button
     min-height: 80vh;
 }
 
+.imgBtn
+{
+    width: 10%;
+    display: inline;
+}
+
 @media (max-width: 1399px) 
 {
     .col-md-6

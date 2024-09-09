@@ -77,6 +77,7 @@ function handleBegin()
     soundImg.src = "images/sound.png";
     soundBtn.appendChild(soundImg);
     div.appendChild(soundBtn);
+    div.appendChild(document.createElement("hr"));
 
     getRandomItems();
 
