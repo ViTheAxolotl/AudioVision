@@ -234,8 +234,9 @@ button
 
 .imgBtn
 {
-    width: 10%;
+    width: auto;
     display: inline;
+    margin: 10px;
 }
 
 @media (max-width: 1399px) 
