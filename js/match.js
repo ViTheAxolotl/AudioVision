@@ -58,18 +58,12 @@ function init()
         wholeCategory = data;
     });
 
-    let begin = document.createElement("button");
-    begin.onclick = handleBegin;
-    begin.innerHTML = "Begin"
-    begin.classList.add("center-full");
-    begin.id = "begin";
-    div.appendChild(begin);
+    handleBegin();
 }
 
 function handleBegin()
 {
     getRandomItems();
-    document.getElementById("begin").remove();
 
     for(let items of Object.keys(buttons))
     {
