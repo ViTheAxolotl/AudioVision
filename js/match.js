@@ -111,10 +111,6 @@ function getRandomItems()
             numOfItems = 4;
             break;
     }
-
-    let correct = wholeCategory[items[(Math.random() * items.length) | 0]];
-    correct.correct = true;
-    buttons[correct.name] = correct;
     
     while(Object.keys(buttons).length < numOfItems)
     {
@@ -126,26 +122,11 @@ function getRandomItems()
         }
     }
 
-    buttons = randomizePlacement();
+    let correct = Object.keys(buttons);
+    correct = correct[(Math.random() * correct.length) | 0];
+    buttons[correct].correct = true;
 
     return buttons;
-}
-
-function randomizePlacement()
-{
-    let temp = {};
-    let itemList = Object.keys(buttons);
-
-    while(true)
-    {
-        let item = itemList[(Math.random() * itemList.length) | 0];
-        temp[item] = buttons[item];
-
-        if(itemList.length > 1){itemList.splice(item, 1);}
-        else{break;}
-    }
-
-    return temp;
 }
 
 function handleImageClick()
