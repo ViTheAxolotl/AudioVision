@@ -173,7 +173,7 @@ function handleImageClick()
     }
 
     handleViewTokens(this);
-    setTimeout(resetCover(), 2000);
+    setTimeout(resetCover, 2000);
 }
 
 function resetCover()
