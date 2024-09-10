@@ -116,3 +116,103 @@ export function placeBefore(elemToPlace, referenceElement)
 { 
     referenceElement.parentElement.insertBefore(elemToPlace, referenceElement);
 }
+
+/**
+ * Displays the cover
+ */
+export function handleViewTokens()
+{
+    let viewDiv = document.getElementById("cover"); //Gets the cover div
+    let y = 2;
+    let title;
+
+    viewDiv.classList = ""; //Makes it visible
+    viewDiv.style.zIndex = "1011"; //Brings it to the top
+    
+    for(let elm of viewDiv.children) //For each element in the cover
+    {
+        if(this.id != "helpBtn") //If it isn't a button
+        {
+            elm.classList = elm.classList[1]; 
+            elm.style.zIndex = `101${y}`; //Brings to the front
+            y++;
+
+            if(elm.id == "viewTitle") //If the element is a title
+            {
+                elm.innerHTML = title;
+            }
+        }
+    }
+
+    if(this.id == "helpBtn") //If it is the help button
+    {
+        let instructions = document.createElement("h3");
+        let holdingDiv = document.createElement("div");
+        holdingDiv.id = "holdingDiv";
+        holdingDiv.classList.add("center");
+
+        instructions.innerHTML = "Instructions";
+        instructions.style.marginTop = "5%";
+        instructions.style.color = "black";
+        holdingDiv.appendChild(instructions);
+
+        placeBefore(holdingDiv, document.getElementById("showInstructions"))
+        changeInstructions();
+    }
+}
+
+/**
+ * Changes the instructions for each webpage
+ */
+export function changeInstructions()
+{
+    let gamesDesc = {"Basketball" : ""};
+    let display = document.getElementById("showInstructions");
+    let page = window.location.href;
+    page = page.split("/");
+    page = page[page.length - 1];
+    page = page.split(".");
+    page = page[0]; //Get the page name
+
+    switch(page) //Splits on pages
+    {
+        case "":
+        case "index":
+            display.innerHTML = "Welcome to AudioVision, to begin click the Login button on the top right. After chose which category you wish to start with.";
+            break;
+
+        case "loginPage":
+            display.innerHTML = "To login type your username and password given to you by Vi. If you need the info again, reach out to Vi.";
+            break;
+
+        case "game":
+            break; //Different games
+
+        case "match":
+            break; //Word to image page
+
+        case "addImage":
+            display.innerHTML = "Use to add item to database. Type name of files, what category it belongs to, and the file extension of the sound (.wav if I did it). Once enter is hit it will cleanse the input and add it to the database.";
+            break;
+    }
+}
+
+/**
+ * Hides the cover
+ */
+export function hideCover()
+{
+    let viewDiv = document.getElementById("cover"); //Get cover
+
+    for(let elm of viewDiv.children) //For element in the div
+    {
+        elm.classList = `invisible ${elm.classList[0]}`; //Hides the element
+        elm.style.zIndex = "0";
+    }
+
+    let holdingDiv = document.getElementById("holdingDiv");
+    if(holdingDiv != null){holdingDiv.remove();} //Deletes stuff in the div
+
+    viewDiv.classList = `invisible`; //Hides the div
+    viewDiv.style.zIndex = "0";
+}

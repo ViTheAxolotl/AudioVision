@@ -1,7 +1,7 @@
 "use strict";
 import { ref, onValue } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js';
 import { onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-import { toTitleCase, auth, database, placeBefore } from './viMethods.js';
+import { toTitleCase, auth, database, placeBefore, handleViewTokens, hideCover } from './viMethods.js';
 
 let log;
 let isLoggedIn = false;
@@ -117,96 +117,6 @@ function copyrightSetup()
     footer.innerHTML += `<h6>Copyright &copy; Vi Snyder ${new Date().getFullYear()}</h6>`;
 }
 
-function handleViewTokens()
-{
-    let viewDiv = document.getElementById("cover");
-    let y = 2;
-    let title;
-
-    viewDiv.classList = "";
-    viewDiv.style.zIndex = "1011";
-    for(let elm of viewDiv.children)
-    {
-        if(this.id != "helpBtn" || elm.id == "hideCover" || elm.id == "showInstructions")
-        {
-            elm.classList = elm.classList[1];
-            elm.style.zIndex = `101${y}`;
-            y++;
-
-            if(elm.id == "viewTitle")
-            {
-                elm.innerHTML = title;
-            }
-        }
-    }
-
-    if(this.id == "helpBtn")
-    {
-        let instructions = document.createElement("h3");
-        let holdingDiv = document.createElement("div");
-        holdingDiv.id = "holdingDiv";
-        holdingDiv.classList.add("center");
-
-        instructions.innerHTML = "Instructions";
-        instructions.style.marginTop = "5%";
-        instructions.style.color = "black";
-        holdingDiv.appendChild(instructions);
-
-        placeBefore(holdingDiv, document.getElementById("showInstructions"))
-        changeInstructions();
-    }
-}
-
-function changeInstructions()
-{
-    let gamesDesc = {"Basketball" : ""};
-    let display = document.getElementById("showInstructions");
-    let page = window.location.href;
-    page = page.split("/");
-    page = page[page.length - 1];
-    page = page.split(".");
-    page = page[0];
-
-    switch(page)
-    {
-        case "":
-        case "index":
-            display.innerHTML = "Welcome to AudioVision, to begin click the Login button on the top right. After chose which category you wish to start with.";
-            break;
-
-        case "loginPage":
-            display.innerHTML = "To login type your username and password given to you by Vi. If you need the info again, reach out to Vi.";
-            break;
-
-        case "game":
-            break; //Different games
-
-        case "match":
-            break; //Word to image page
-
-        case "addImage":
-            display.innerHTML = "Use to add item to database. Type name of files, what category it belongs to, and the file extension of the sound (.wav if I did it). Once enter is hit it will cleanse the input and add it to the database.";
-            break;
-    }
-}
-
-function hideCover()
-{
-    let viewDiv = document.getElementById("cover");
-
-    for(let elm of viewDiv.children)
-    {
-        elm.classList = `invisible ${elm.classList[0]}`;
-        elm.style.zIndex = "0";
-    }
-
-    let holdingDiv = document.getElementById("holdingDiv");
-    if(holdingDiv != null){holdingDiv.remove();}
-
-    viewDiv.classList = `invisible`;
-    viewDiv.style.zIndex = "0";
-}
-
 function createCoverAndHelp()
 {
     let div = document.getElementsByClassName("container");
@@ -234,6 +144,11 @@ function createCoverAndHelp()
     instructions.id = "showInstructions";
     instructions.style.padding = "10px";
     coverDiv.appendChild(instructions);
+
+    let img = document.createElement("img");
+    img.style.display = "none";
+    img.id = "changeImg";
+    coverDiv.appendChild(img);
 
     let helpBtn = document.createElement("img");
     helpBtn.id = "helpBtn";

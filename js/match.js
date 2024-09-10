@@ -2,7 +2,7 @@
 
 import { ref, onValue } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js';
 import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-import { toTitleCase, auth, database, setDoc, deleteDoc, placeBefore } from './viMethods.js';
+import { toTitleCase, auth, database, setDoc, deleteDoc, placeBefore, handleViewTokens } from './viMethods.js';
 
 /**
  * When anything under this changes it will use onValue
@@ -70,7 +70,7 @@ function init()
 function handleBegin()
 {
     let soundBtn = document.createElement("button");
-    soundBtn.onclick = playSound;
+    soundBtn.onclick = function () {playSound(soundBtn.title)};
     soundBtn.id = "soundBtn";
     soundBtn.classList.add("imgBtn");
     soundBtn.classList.add("center");
@@ -149,20 +149,25 @@ function getRandomItems()
 
 function handleImageClick()
 {
+    let img = document.getElementById("changeImg");
+    img.style.display = "block";
+
     if(buttons[this.id].correct)
     {
-        alert("correct");
+        img.src = "images/correct.png";
     }
 
     else
     {
-        alert("false");
+        img.src = "images/incorrect.png";
     }
+
+    handleViewTokens();
 }
 
-function playSound()
+function playSound(sound)
 {
-    snd = new Audio(this.title);
+    snd = new Audio(sound);
     snd.volume = 0.1;
     snd.play();
 }
