@@ -120,18 +120,20 @@ export function placeBefore(elemToPlace, referenceElement)
 /**
  * Displays the cover
  */
-export function handleViewTokens()
+export function handleViewTokens(this)
 {
     let viewDiv = document.getElementById("cover"); //Gets the cover div
     let y = 2;
     let title;
+    let img = document.getElementById("changeImg");
 
     viewDiv.classList = ""; //Makes it visible
     viewDiv.style.zIndex = "1011"; //Brings it to the top
+
     
     for(let elm of viewDiv.children) //For each element in the cover
     {
-        if(elm.id != "helpBtn") //If it isn't a button
+        if(elm.id != "helpBtn" && elm.id != "changeImg" && img.src != "") //If it isn't a button and it isn't the img
         {
             elm.classList = elm.classList[1]; 
             elm.style.zIndex = `101${y}`; //Brings to the front
@@ -158,6 +160,13 @@ export function handleViewTokens()
 
         placeBefore(holdingDiv, document.getElementById("showInstructions"))
         changeInstructions();
+    }
+
+    else //If it was correct or incorrect
+    {
+        img.classList = img.classList[1]; 
+        img.style.zIndex = `101${y}`; //Brings to the front
+        y++;
     }
 }
 
@@ -189,7 +198,8 @@ export function changeInstructions()
             break; //Different games
 
         case "match":
-            break; //Word to image page
+            display.innerHTML = "Listen to the sound and click the image that matches it. Clicking the volume button will play the sound once more. As you click the right option more options will be displayed."
+            break; 
 
         case "addImage":
             display.innerHTML = "Use to add item to database. Type name of files, what category it belongs to, and the file extension of the sound (.wav if I did it). Once enter is hit it will cleanse the input and add it to the database.";
