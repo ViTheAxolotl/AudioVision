@@ -2,7 +2,7 @@
 
 import { ref, onValue } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js';
 import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-import { toTitleCase, auth, database, setDoc, deleteDoc, placeBefore, handleViewTokens } from './viMethods.js';
+import { toTitleCase, auth, database, setDoc, deleteDoc, placeBefore, handleViewTokens, hideCover } from './viMethods.js';
 
 /**
  * When anything under this changes it will use onValue
@@ -106,6 +106,11 @@ function getRandomItems()
     buttons = {};
     let items = Object.keys(wholeCategory);
     let numOfItems;
+
+    while(div.childNodes.length > 0)
+    {
+        div.firstChild.remove();
+    }
     
     if(!wholeAccounts[user].numOfCorrect)
     {
@@ -168,6 +173,17 @@ function handleImageClick()
     }
 
     handleViewTokens(this);
+    setTimeout(resetCover(), 600);
+}
+
+function resetCover()
+{
+    let img = document.getElementById("changeImg");
+    img.style.display = "none";
+    img.src = "";
+
+    hideCover();
+    getRandomItems();
 }
 
 function playSound(sound)
