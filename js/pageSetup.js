@@ -148,6 +148,7 @@ function createCoverAndHelp()
     let img = document.createElement("img");
     img.style.display = "none";
     img.id = "changeImg";
+    img.classList = " invisible center-full"
     coverDiv.appendChild(img);
 
     let helpBtn = document.createElement("img");
