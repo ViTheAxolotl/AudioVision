@@ -70,6 +70,11 @@ function init()
 
 function handleBegin()
 {
+    while(div.childNodes.length > 0)
+    {
+        div.firstChild.remove();
+    }
+
     let soundBtn = document.createElement("button");
     soundBtn.onclick = function () {playSound(soundBtn.title)};
     soundBtn.id = "soundBtn";
@@ -106,11 +111,6 @@ function getRandomItems()
     buttons = {};
     let items = Object.keys(wholeCategory);
     let numOfItems;
-
-    while(div.childNodes.length > 0)
-    {
-        div.firstChild.remove();
-    }
     
     if(!wholeAccounts[user].numOfCorrect)
     {
@@ -183,7 +183,7 @@ function resetCover()
     img.src = "";
 
     hideCover();
-    getRandomItems();
+    handleBegin();
 }
 
 function playSound(sound)
