@@ -162,7 +162,7 @@ function handleImageClick()
         img.src = "images/incorrect.png";
     }
 
-    handleViewTokens();
+    handleViewTokens(this);
 }
 
 function playSound(sound)
