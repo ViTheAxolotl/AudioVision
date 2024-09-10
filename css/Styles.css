@@ -246,17 +246,17 @@ button
 
 .twoOptions
 {
-    width: 35vh;
+    width: 25vh;
 }
 
 .threeOptions
 {
-    width: 25vh;
+    width: 15vh;
 }
 
 .fourOptions
 {
-    width: 15vh;
+    width: 5vh;
 }
 
 @media (max-width: 1399px) 
