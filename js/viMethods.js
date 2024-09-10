@@ -120,7 +120,7 @@ export function placeBefore(elemToPlace, referenceElement)
 /**
  * Displays the cover
  */
-export function handleViewTokens(this)
+export function handleViewTokens(This)
 {
     let viewDiv = document.getElementById("cover"); //Gets the cover div
     let y = 2;
@@ -146,7 +146,7 @@ export function handleViewTokens(this)
         }
     }
 
-    if(this.id == "helpBtn") //If it is the help button
+    if(This.id == "helpBtn") //If it is the help button
     {
         let instructions = document.createElement("h3");
         let holdingDiv = document.createElement("div");
