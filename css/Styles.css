@@ -239,6 +239,26 @@ button
     margin: 10px;
 }
 
+.width
+{
+    width: 30%;
+}
+
+.twoOptions
+{
+    width: 35vh;
+}
+
+.threeOptions
+{
+    width: 25vh;
+}
+
+.fourOptions
+{
+    width: 15vh;
+}
+
 @media (max-width: 1399px) 
 {
     .col-md-6

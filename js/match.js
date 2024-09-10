@@ -42,7 +42,8 @@ let div = document.getElementById("match");
 let category = window.location.href;
 let buttons = {};
 let firstRun = true;
-var snd;
+let snd;
+let size;
 
 /**
  * Runs when user is logged in sets up category
@@ -93,6 +94,7 @@ function handleBegin()
 
         let image = document.createElement("img");
         image.src = buttons[items].src;
+        image.classList.add(size);
         btn.appendChild(image);
 
         div.appendChild(btn);
@@ -116,16 +118,19 @@ function getRandomItems()
         case 1:
         case 2:
             numOfItems = 2;
+            size = "twoOptions";
             break;
         
         case 3:
         case 4:
         case 5:
             numOfItems = 3;
+            size = "threeOptions";
             break;
 
         default:
             numOfItems = 4;
+            size = "fourOptions";
             break;
     }
     
