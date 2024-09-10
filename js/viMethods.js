@@ -133,7 +133,7 @@ export function handleViewTokens(This)
     
     for(let elm of viewDiv.children) //For each element in the cover
     {
-        if(elm.id != "helpBtn" && elm.id != "changeImg" && img.src != "") //If it isn't a button and it isn't the img
+        if(elm.id != "helpBtn" && elm.id != "changeImg" && !img.src.includes("correct")) //If it isn't a button and it isn't the img
         {
             elm.classList = elm.classList[1]; 
             elm.style.zIndex = `101${y}`; //Brings to the front
