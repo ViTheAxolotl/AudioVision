@@ -159,4 +159,4 @@ function createCoverAndHelp()
     placeBefore(coverDiv, div[0].firstChild);
 }
 
-init();
+init(); 
