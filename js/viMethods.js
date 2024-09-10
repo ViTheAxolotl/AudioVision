@@ -213,6 +213,7 @@ export function changeInstructions()
 export function hideCover()
 {
     let viewDiv = document.getElementById("cover"); //Get cover
+    let img = document.getElementById("changeImg");
 
     for(let elm of viewDiv.children) //For element in the div
     {
@@ -225,4 +226,5 @@ export function hideCover()
 
     viewDiv.classList = `invisible`; //Hides the div
     viewDiv.style.zIndex = "0";
+    img.src = ""; //Removes sorce
 }
