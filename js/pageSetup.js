@@ -149,6 +149,7 @@ function createCoverAndHelp()
     img.style.display = "none";
     img.id = "changeImg";
     img.src = "";
+    img.style.width = "35vh";
     img.classList = " invisible center-full"
     coverDiv.appendChild(img);
 
