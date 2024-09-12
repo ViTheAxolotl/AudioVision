@@ -62,13 +62,13 @@ function init()
 
         if(firstRun)
         {
-            handleBegin();
-            firstRun = false;
-
             if(!wholeAccounts[user][category].numCorrect)
             {
                 setDoc(`Accounts/${user}/${category}/numCorrect`, 0);
             }
+
+            handleBegin();
+            firstRun = false;
         }
     });
 }
