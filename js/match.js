@@ -62,9 +62,14 @@ function init()
 
         if(firstRun)
         {
-            if(!wholeAccounts[user][category].numCorrect)
+            if(!wholeAccounts[user][category])
             {
-                setDoc(`Accounts/${user}/${category}/numCorrect`, 0);
+                setDoc(`Accounts/${user}/${category}`, {"hold" : "hold"});
+
+                if(!wholeAccounts[user][category].numCorrect)
+                {
+                    setDoc(`Accounts/${user}/${category}/numCorrect`, 0);
+                } 
             }
 
             handleBegin();
