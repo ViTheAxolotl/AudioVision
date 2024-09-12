@@ -185,6 +185,7 @@ function handleImageClick()
         }
     }
 
+    buttons = {};
     handleViewTokens(this);
     setTimeout(resetCover, 2000);
 }
