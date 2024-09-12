@@ -64,6 +64,11 @@ function init()
         {
             handleBegin();
             firstRun = false;
+
+            if(!wholeAccounts[user][category].numCorrect)
+            {
+                setDoc(`Accounts/${user}/${category}/numCorrect`, 0);
+            }
         }
     });
 }
@@ -111,13 +116,8 @@ function getRandomItems()
     buttons = {};
     let items = Object.keys(wholeCategory);
     let numOfItems;
-    
-    if(!wholeAccounts[user].numOfCorrect)
-    {
-        setDoc(`Accounts/${user}/numOfCorrect`, 0);
-    }
 
-    switch(wholeAccounts[user].numOfCorrect)
+    switch(wholeAccounts[user][category].numCorrect)
     {
         case 0:
         case 1:
@@ -165,6 +165,7 @@ function handleImageClick()
     if(buttons[this.id].correct)
     {
         img.src = "images/correct.png";
+        setDoc(`Accounts/${user}/${category}/numCorrect`, wholeAccounts[user][category].numCorrect + 1);
     }
 
     else
