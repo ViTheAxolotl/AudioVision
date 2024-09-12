@@ -184,10 +184,9 @@ function handleImageClick()
         }
     }
 
-    while(Object.keys(buttons).length > 0)
+    for(let item of Object.keys(wholeCategory))
     {
-        let list = Object.keys(buttons);
-        delete buttons[list[0]];
+        wholeCategory[item].correct = false;
     }
     
     handleViewTokens(this);
