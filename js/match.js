@@ -187,7 +187,7 @@ function handleImageClick()
     while(Object.keys(buttons).length > 0)
     {
         let list = Object.keys(buttons);
-        buttons[list[0]] = null;
+        delete buttons[list[0]];
     }
     
     handleViewTokens(this);
