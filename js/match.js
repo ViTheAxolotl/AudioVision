@@ -44,6 +44,7 @@ let buttons = {};
 let firstRun = true;
 let snd = new Audio();
 let size;
+let currentNumCorrect;
 
 /**
  * Runs when user is logged in sets up category
@@ -121,8 +122,9 @@ function getRandomItems()
     buttons = {};
     let items = Object.keys(wholeCategory);
     let numOfItems;
+    currentNumCorrect = wholeAccounts[user][category].numCorrect;
 
-    switch(wholeAccounts[user][category].numCorrect)
+    switch(currentNumCorrect)
     {
         case 0:
         case 1:
@@ -170,12 +172,17 @@ function handleImageClick()
     if(buttons[this.id].correct)
     {
         img.src = "images/correct.png";
-        setDoc(`Accounts/${user}/${category}/numCorrect`, wholeAccounts[user][category].numCorrect + 1);
+        setDoc(`Accounts/${user}/${category}/numCorrect`, currentNumCorrect + 1);
     }
 
     else
     {
         img.src = "images/incorrect.png";
+        
+        if(currentNumCorrect - 1 >= 0)
+        {
+            setDoc(`Accounts/${user}/${category}/numCorrect`, currentNumCorrect - 1);
+        }
     }
 
     handleViewTokens(this);
