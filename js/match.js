@@ -160,14 +160,13 @@ function getRandomItems()
     correct = correct[(Math.random() * correct.length) | 0];
     buttons[correct].correct = true;
     document.getElementById("soundBtn").title = buttons[correct].sound;
-
-    return buttons;
 }
 
 function handleImageClick()
 {
     let img = document.getElementById("changeImg");
     img.style.display = "block";
+    snd.pause();
 
     if(buttons[this.id].correct)
     {
@@ -185,7 +184,12 @@ function handleImageClick()
         }
     }
 
-    buttons = {};
+    while(Object.keys(buttons).length > 0)
+    {
+        let list = Object.keys(buttons);
+        buttons[list[0]] = null;
+    }
+    
     handleViewTokens(this);
     setTimeout(resetCover, 2000);
 }
