@@ -42,7 +42,7 @@ let div = document.getElementById("match");
 let category = window.location.href;
 let buttons = {};
 let firstRun = true;
-let snd;
+let snd = new Audio();
 let size;
 
 /**
@@ -188,7 +188,7 @@ function resetCover()
 
 function playSound(sound)
 {
-    snd = new Audio(sound);
+    snd.src = sound;
     snd.volume = 0.1;
     snd.play();
 }
