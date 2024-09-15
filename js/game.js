@@ -69,7 +69,12 @@ function init()
             {
                 setDoc(`Accounts/${user}/isGame`, false);
             }
-            
+
+            if(!wholeAccounts[user]["isGame"])
+            {
+                window.location.href = `match.html?${wholeAccounts[user]["lastCategory"]}`;
+            }
+
             txt = txt.slice(0, txt.indexOf(":") + 1);
             display.innerHTML = `${txt} ${plays}`;
         });
@@ -80,8 +85,5 @@ function init()
 
 function handleBegin()
 {
-    if(!wholeAccounts[user]["isGame"])
-    {
-        window.location.href = `match.html?${wholeAccounts[user]["lastCategory"]}`;
-    }
+    
 }
