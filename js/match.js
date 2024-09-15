@@ -191,6 +191,7 @@ function handleImageClick()
         setDoc(`Accounts/${user}/${category}/numCorrect`, currentNumCorrect + 1);
         setDoc(`Accounts/${user}/isGame`, true);
         setDoc(`Accounts/${user}/plays`, plays);
+        setDoc(`Accounts/${user}/lastCategory`, category);
         
         if(!wholeAccounts[user][game]){setDoc(`Accounts/${user}/game`, "basketBall");}
     }
