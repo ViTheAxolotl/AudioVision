@@ -2,7 +2,7 @@
 
 import { ref, onValue } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js';
 import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-import { toTitleCase, auth, database, setDoc, deleteDoc, placeBefore, handleViewTokens, hideCover } from './viMethods.js';
+import { toTitleCase, auth, database, setDoc, playSound, placeBefore, handleViewTokens, hideCover } from './viMethods.js';
 
 /**
  * When anything under this changes it will use onValue
@@ -81,13 +81,18 @@ function init()
 
 function handleBegin()
 {
+    if(wholeAccounts[user]["isGame"])
+    {
+        window.location.href = "game.html";
+    }
+
     while(div.childNodes.length > 0)
     {
         div.firstChild.remove();
     }
 
     let soundBtn = document.createElement("button");
-    soundBtn.onclick = function () {playSound(soundBtn.title)};
+    soundBtn.onclick = function () {playSound(soundBtn.title, snd)};
     soundBtn.id = "soundBtn";
     soundBtn.classList.add("imgBtn");
     soundBtn.classList.add("center");
@@ -171,7 +176,13 @@ function handleImageClick()
     if(buttons[this.id].correct)
     {
         img.src = "images/correct.png";
+        let plays = document.getElementsByClassName("imgBtn").length;
+
         setDoc(`Accounts/${user}/${category}/numCorrect`, currentNumCorrect + 1);
+        setDoc(`Accounts/${user}/isGame`, true);
+        setDoc(`Accounts/${user}/plays`, plays);
+        
+        if(!wholeAccounts[user][game]){setDoc(`Accounts/${user}/game`, "basketBall");}
     }
 
     else
@@ -201,11 +212,4 @@ function resetCover()
 
     hideCover();
     handleBegin();
-}
-
-function playSound(sound)
-{
-    snd.src = sound;
-    snd.volume = 0.1;
-    snd.play();
 }

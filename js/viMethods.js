@@ -228,3 +228,15 @@ export function hideCover()
     viewDiv.style.zIndex = "0";
     img.src = ""; //Removes sorce
 }
+
+/**
+ * Plays the sound sound to the player player
+ * @param {*} sound 
+ * @param {*} player 
+ */
+function playSound(sound, player)
+{
+    player.src = sound; //loads the sound
+    player.volume = 0.1; //Makes it not so loud
+    player.play(); //Plays
+}
