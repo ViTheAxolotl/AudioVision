@@ -12,6 +12,12 @@ onValue(accountsRef, (snapshot) =>
 {
     const data = snapshot.val();
     wholeAccounts = data;
+
+    if(firstRun)
+    {
+        firstRun = false;
+        init();
+    }
 });
 
 /**
@@ -39,13 +45,17 @@ let div = document.getElementById("game");
 let display = document.getElementById("display");
 let snd = new Audio();
 let plays;
+let firstRun = true;
 
 /**
  * Runs when user is logged in sets up category
  */
 function init()
 {
-    handleBegin();
+    if(wholeAccounts && user)
+    {
+        handleBegin();
+    }
 }
 
 function handleBegin()
