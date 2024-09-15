@@ -193,7 +193,7 @@ function handleImageClick()
         setDoc(`Accounts/${user}/plays`, plays);
         setDoc(`Accounts/${user}/lastCategory`, category);
         
-        if(wholeAccounts[user][game] == undefined){setDoc(`Accounts/${user}/game`, "basketBall");}
+        if(wholeAccounts[user]["game"]){setDoc(`Accounts/${user}/game`, "basketBall");}
     }
 
     else
