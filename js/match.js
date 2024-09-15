@@ -12,6 +12,12 @@ onValue(accountsRef, (snapshot) =>
 {
     const data = snapshot.val();
     wholeAccounts = data;
+
+    if(firstRunAccount)
+    {
+        firstRunAccount = false;
+        init();
+    }
 });
 
 let categoryRef;
@@ -42,6 +48,7 @@ let div = document.getElementById("match");
 let category = window.location.href;
 let buttons = {};
 let firstRun = true;
+let firstRunAccount = true;
 let snd = new Audio();
 let size;
 let currentNumCorrect;
@@ -51,32 +58,35 @@ let currentNumCorrect;
  */
 function init()
 {
-    category = category.split("?");
-    category = category[1];
-    setDoc(`Accounts/${user}/category`, category);
-
-    categoryRef = ref(database, `${category}/`);
-    onValue(categoryRef, (snapshot) => 
+    if(wholeAccounts && user)
     {
-        const data = snapshot.val();
-        wholeCategory = data;
+        category = category.split("?");
+        category = category[1];
+        setDoc(`Accounts/${user}/category`, category);
 
-        if(firstRun)
+        categoryRef = ref(database, `${category}/`);
+        onValue(categoryRef, (snapshot) => 
         {
-            if(!wholeAccounts[user][category])
+            const data = snapshot.val();
+            wholeCategory = data;
+
+            if(firstRun)
             {
-                setDoc(`Accounts/${user}/${category}`, {"hold" : "hold"});
-
-                if(!wholeAccounts[user][category].numCorrect)
+                if(!wholeAccounts[user][category])
                 {
-                    setDoc(`Accounts/${user}/${category}/numCorrect`, 0);
-                } 
-            }
+                    setDoc(`Accounts/${user}/${category}`, {"hold" : "hold"});
 
-            handleBegin();
-            firstRun = false;
-        }
-    });
+                    if(!wholeAccounts[user][category].numCorrect)
+                    {
+                        setDoc(`Accounts/${user}/${category}/numCorrect`, 0);
+                    } 
+                }
+
+                handleBegin();
+                firstRun = false;
+            }
+        });
+    }
 }
 
 function handleBegin()
