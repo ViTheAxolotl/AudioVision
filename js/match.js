@@ -58,7 +58,7 @@ let currentNumCorrect;
  */
 function init()
 {
-    if(wholeAccounts && user)
+    if(wholeAccounts.length > 1 && user)
     {
         category = category.split("?");
         category = category[1];
