@@ -64,7 +64,7 @@ function handleBegin()
 
     if(!wholeAccounts[user]["isGame"])
     {
-        window.location.href = `match.html?${wholeAccounts[user][lastCategory]}`;
+        window.location.href = `match.html?${wholeAccounts[user]["lastCategory"]}`;
     }
 
     plays = wholeAccounts[user]["plays"];
