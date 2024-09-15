@@ -52,7 +52,7 @@ let firstRun = true;
  */
 function init()
 {
-    if(wholeAccounts.length > 1 && user)
+    if(Object.keys(wholeAccounts).length > 1 && user)
     {
         handleBegin();
     }
