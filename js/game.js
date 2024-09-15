@@ -64,7 +64,7 @@ function init()
         {
             let txt = display.innerHTML;
             plays = snapshot.val();
-            txt.slice(0, txt.indexOf(":") + 1);
+            txt = txt.slice(0, txt.indexOf(":") + 1);
             display.innerHTML = `${txt} ${plays}`;
         });
 
