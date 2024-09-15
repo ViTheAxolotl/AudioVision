@@ -64,6 +64,12 @@ function init()
         {
             let txt = display.innerHTML;
             plays = snapshot.val();
+
+            if(plays < 1)
+            {
+                setDoc(`Accounts/${user}/isGame`, false);
+            }
+            
             txt = txt.slice(0, txt.indexOf(":") + 1);
             display.innerHTML = `${txt} ${plays}`;
         });
