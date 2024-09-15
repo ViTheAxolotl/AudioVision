@@ -21,6 +21,11 @@ onValue(accountsRef, (snapshot) =>
 });
 
 /**
+ * When anything under this changes it will use onValue
+ */
+let playsRef;
+
+/**
  * Checks if user is logged in, if they aren't send them to loginPage
  */
 onAuthStateChanged(auth, (person) => 
@@ -54,20 +59,23 @@ function init()
 {
     if(Object.keys(wholeAccounts).length > 0 && user)
     {
+        playsRef = ref(database, `Accounts/${user}/plays`);
+        onValue(playsRef, (snapshot) => 
+        {
+            let txt = display.innerHTML;
+            plays = snapshot.val();
+            txt.slice(0, txt.indexOf(":") + 1);
+            display.innerHTML = `${txt} ${plays}`;
+        });
+
         handleBegin();
     }
 }
 
 function handleBegin()
 {
-    let txt = display.innerHTML;
-
     if(!wholeAccounts[user]["isGame"])
     {
         window.location.href = `match.html?${wholeAccounts[user]["lastCategory"]}`;
     }
-
-    plays = wholeAccounts[user]["plays"];
-    txt.slice(0, txt.indexOf(":") + 1);
-    display.innerHTML = `${txt} ${plays}`;
 }
