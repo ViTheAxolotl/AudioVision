@@ -105,12 +105,19 @@ function beginBasketBall()
         let elm = document.createElement("img");
         elm.id = label[i];
         elm.src = `images/game/${label[i]}.png`;
+        elm.style.display = "block";
         if(i == 0){elm.onmouseup = handleSweetSpot;}
+        else if(i > 0){elm.style.display = "absolute";}
         gameDiv.appendChild(elm);
     }
 
+    let ball = document.createElement("img");
+    ball.id = "ball";
+    ball.src = "images/game/basketball.png";
+
     div.onmouseup = handleNonSweetSpot;
     div.appendChild(gameDiv);
+    div.appendChild(ball);
 }
 
 function handleSweetSpot()
