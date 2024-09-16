@@ -105,8 +105,8 @@ function beginBasketBall()
         let elm = document.createElement("img");
         elm.id = label[i];
         elm.src = `images/game/${label[i]}.png`;
-        if(i == 0){elm.onmouseup = handleSweetSpot; elm.style.display = "block"; elm.style.left = "1%"; elm.style.top = "1%";}
-        else if(i > 0){elm.style.display = "absolute";}
+        if(i == 0){elm.onmouseup = handleSweetSpot; elm.style.display = "block";}
+        else if(i > 0){elm.style.display = "absolute"; elm.style.left = "1%"; elm.style.top = "1%";}
         gameDiv.appendChild(elm);
     }
 
