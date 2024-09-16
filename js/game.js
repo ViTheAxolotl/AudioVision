@@ -118,7 +118,7 @@ function beginBasketBall()
     div.appendChild(gameDiv);
     div.appendChild(ball);
     
-    setTimeout(function () {let ss, hoop;
+    setTimeout(function () {let ss; let hoop;
         ss = document.getElementById("sweetSpot");
         hoop = document.getElementById("hoop");
         ss.style.marginLeft = `${(hoop.offsetWidth - ss.offsetWidth) / 2}`;}, 100);
