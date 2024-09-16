@@ -262,8 +262,6 @@ button
 .overlap
 {
     position: absolute;
-    left: 1%;
-    top: 1%;
 }
 
 @media (max-width: 1399px) 
