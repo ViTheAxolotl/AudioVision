@@ -99,7 +99,6 @@ function beginBasketBall()
     gameDiv.id = "gameDiv";
 
     let label = ["sweetSpot", "backBoard", "hoop"];
-    let ss, hoop;
 
     for(let i = 0; i < label.length; i++)
     {
@@ -119,9 +118,11 @@ function beginBasketBall()
     div.appendChild(gameDiv);
     div.appendChild(ball);
     
-    ss = document.getElementById("sweetSpot");
-    hoop = document.getElementById("hoop");
-    ss.style.marginLeft = `${(hoop.offsetWidth - ss.offsetWidth) / 2}`;
+    setTimeout(function () {let ss, hoop;
+        ss = document.getElementById("sweetSpot");
+        hoop = document.getElementById("hoop");
+        ss.style.marginLeft = `${(hoop.offsetWidth - ss.offsetWidth) / 2}`;}, 1000);
+    
 }
 
 function handleSweetSpot()
