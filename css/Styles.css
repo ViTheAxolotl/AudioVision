@@ -269,6 +269,7 @@ button
     position: absolute;
     bottom: -50vh;
     left: 70vh;
+    height: 70%;
 }
 
 @media (max-width: 1399px) 

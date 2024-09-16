@@ -97,23 +97,26 @@ function beginBasketBall()
 {
     let gameDiv = document.createElement("div");
     gameDiv.id = "gameDiv";
-
     let label = ["sweetSpot", "backBoard", "hoop"];
+    let ss, hoop;
 
     for(let i = 0; i < label.length; i++)
     {
         let elm = document.createElement("img");
         elm.id = label[i];
         elm.src = `images/game/${label[i]}.png`;
-        if(i == 0){elm.onmouseup = handleSweetSpot; elm.style.display = "block";}
+        if(i == 0){elm.onmouseup = handleSweetSpot; elm.style.display = "block"; }
         else if(i > 0){elm.classList.add("overlap");}
         gameDiv.appendChild(elm);
     }
 
+    ss = document.getElementById("sweetSpot");
+    hoop = document.getElementById("hoop");
+    ss.style.marginLeft = `${(hoop.style.width - ss.style.width) / 2}`;
+
     let ball = document.createElement("img");
     ball.id = "ball";
     ball.src = "images/game/basketball.png";
-    ball.classList.add("center");
 
     div.onmouseup = handleNonSweetSpot;
     div.appendChild(gameDiv);
