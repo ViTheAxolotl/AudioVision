@@ -85,5 +85,40 @@ function init()
 
 function handleBegin()
 {
-    
+    switch(wholeAccounts[user]["game"])
+    {
+        case "basketball":
+            beginBasketBall();
+            break;
+    }
+}
+
+function beginBasketBall()
+{
+    let gameDiv = document.createElement("div");
+    gameDiv.id = "gameDiv";
+
+    let label = ["sweetSpot", "backBoard", "hoop"];
+
+    for(let i = 0; i < label.length; i++)
+    {
+        let elm = document.createElement("img");
+        elm.id = label[i];
+        elm.src = `images/game/${label[i]}.png`;
+        if(i == 0){elm.onmouseup = handleSweetSpot;}
+        gameDiv.appendChild(elm);
+    }
+
+    div.onmouseup = handleNonSweetSpot;
+    div.appendChild(gameDiv);
+}
+
+function handleSweetSpot()
+{
+    alert("correct");
+}
+
+function handleNonSweetSpot()
+{
+    alert("incorrect");
 }
