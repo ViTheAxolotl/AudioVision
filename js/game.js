@@ -100,15 +100,15 @@ function beginBasketBall()
     let gameDiv = document.createElement("div");
     gameDiv.id = "gameDiv";
 
-    let label = ["backBoard", "hoop", "sweetSpot"];
+    let label = ["sweetSpot", "backBoard", "hoop"];
     
     for(let i = 0; i < label.length; i++)
     {
         let elm = document.createElement("img");
         elm.id = label[i];
         elm.src = `images/game/${label[i]}.png`;
-        if(i == 2){elm.onmouseup = handleSweetSpot; elm.style.display = "block"; ss = elm; elm.onload = () => {elm.style.marginLeft = `${(hoop.offsetWidth - ss.offsetWidth) / 2}`};}
-        else if(i < 2){elm.classList.add("overlap"); hoop = elm;}
+        if(i == 0){elm.onmouseup = handleSweetSpot; elm.style.display = "block"; ss = elm; elm.onload = () => {elm.style.marginLeft = `${(hoop.offsetWidth - ss.offsetWidth) / 2}`};}
+        else if(i > 0){elm.classList.add("overlap"); hoop = elm;}
         gameDiv.appendChild(elm);
     }
 
