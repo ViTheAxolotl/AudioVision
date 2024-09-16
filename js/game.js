@@ -51,6 +51,8 @@ let display = document.getElementById("display");
 let snd = new Audio();
 let plays;
 let firstRun = true;
+let ss;
+let hoop;
 
 /**
  * Runs when user is logged in sets up category
@@ -99,15 +101,13 @@ function beginBasketBall()
     gameDiv.id = "gameDiv";
 
     let label = ["backBoard", "hoop", "sweetSpot"];
-    let ss;
-    let hoop;
-
+    
     for(let i = 0; i < label.length; i++)
     {
         let elm = document.createElement("img");
         elm.id = label[i];
         elm.src = `images/game/${label[i]}.png`;
-        if(i == 2){elm.onmouseup = handleSweetSpot; elm.style.display = "block"; ss = elm; elm.style.marginLeft = `${(hoop.offsetWidth - ss.offsetWidth) / 2}`;}
+        if(i == 2){elm.onmouseup = handleSweetSpot; elm.style.display = "block"; ss = elm; elm.onload = () => {elm.style.marginLeft = `${(hoop.offsetWidth - ss.offsetWidth) / 2}`};}
         else if(i < 2){elm.classList.add("overlap"); hoop = elm;}
         gameDiv.appendChild(elm);
     }
