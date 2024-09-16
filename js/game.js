@@ -97,8 +97,7 @@ function beginBasketBall()
 {
     let gameDiv = document.createElement("div");
     gameDiv.id = "gameDiv";
-    div.appendChild(gameDiv);
-    
+
     let label = ["sweetSpot", "backBoard", "hoop"];
     let ss, hoop;
 
@@ -112,6 +111,7 @@ function beginBasketBall()
         gameDiv.appendChild(elm);
     }
 
+    div.appendChild(gameDiv);
     ss = document.getElementById("sweetSpot");
     hoop = document.getElementById("hoop");
     ss.style.marginLeft = `${(hoop.style.width - ss.style.width) / 2}`;
