@@ -80,7 +80,6 @@ function init()
         });
 
         handleBegin();
-        moveSS();
     }
 }
 
@@ -138,3 +137,5 @@ function handleNonSweetSpot()
 {
     alert("incorrect");
 }
+
+window.onload = moveSS;
