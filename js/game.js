@@ -113,6 +113,9 @@ function beginBasketBall()
     let ball = document.createElement("img");
     ball.id = "ball";
     ball.src = "images/game/basketball.png";
+    ball.classList.add("center");
+    ball.style.position = "absolute";
+    ball.style.bottom = "80vh";
 
     div.onmouseup = handleNonSweetSpot;
     div.appendChild(gameDiv);
