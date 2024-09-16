@@ -121,7 +121,7 @@ function beginBasketBall()
     
     ss = document.getElementById("sweetSpot");
     hoop = document.getElementById("hoop");
-    ss.style.marginLeft = `${(hoop.style.width - ss.style.width) / 2}`;
+    ss.style.marginLeft = `${(hoop.offsetWidth - ss.offsetWidth) / 2}`;
 }
 
 function handleSweetSpot()
