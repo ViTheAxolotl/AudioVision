@@ -266,9 +266,9 @@ button
 
 #ball
 {
-    position: "absolute";
-    bottom: "-50vh";
-    left: "70vh";
+    position: absolute;
+    bottom: -50vh;
+    left: 70vh;
 }
 
 @media (max-width: 1399px) 
