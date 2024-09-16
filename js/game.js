@@ -80,6 +80,7 @@ function init()
         });
 
         handleBegin();
+        moveSS();
     }
 }
 
@@ -117,10 +118,6 @@ function beginBasketBall()
     div.onmouseup = handleNonSweetSpot;
     div.appendChild(gameDiv);
     div.appendChild(ball);
-    
-    setTimeout(moveSS, 1000);
-    alert(ss.style.marginLeft);
-    
 }
 
 function moveSS()
@@ -129,6 +126,7 @@ function moveSS()
     ss = document.getElementById("sweetSpot");
     hoop = document.getElementById("hoop");
     ss.style.marginLeft = `${(hoop.offsetWidth - ss.offsetWidth) / 2}`;
+    alert(ss.style.marginLeft);
 }
 
 function handleSweetSpot()
