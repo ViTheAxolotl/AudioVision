@@ -122,6 +122,7 @@ function beginBasketBall()
         ss = document.getElementById("sweetSpot");
         hoop = document.getElementById("hoop");
         ss.style.marginLeft = `${(hoop.offsetWidth - ss.offsetWidth) / 2}`;}, 1000);
+        alert(ss.style.marginLeft);
     
 }
 
