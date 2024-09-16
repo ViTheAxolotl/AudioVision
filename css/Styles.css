@@ -259,6 +259,13 @@ button
     width: 15vh;
 }
 
+.overlap
+{
+    display: absolute;
+    left: 1%;
+    top: 1%;
+}
+
 @media (max-width: 1399px) 
 {
     .col-md-6
