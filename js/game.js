@@ -98,15 +98,17 @@ function beginBasketBall()
     let gameDiv = document.createElement("div");
     gameDiv.id = "gameDiv";
 
-    let label = ["sweetSpot", "backBoard", "hoop"];
+    let label = ["backBoard", "hoop", "sweetSpot"];
+    let ss;
+    let hoop;
 
     for(let i = 0; i < label.length; i++)
     {
         let elm = document.createElement("img");
         elm.id = label[i];
         elm.src = `images/game/${label[i]}.png`;
-        if(i == 0){elm.onmouseup = handleSweetSpot; elm.style.display = "block"; }
-        else if(i > 0){elm.classList.add("overlap");}
+        if(i == 2){elm.onmouseup = handleSweetSpot; elm.style.display = "block"; ss = elm; elm.style.marginLeft = `${(hoop.offsetWidth - ss.offsetWidth) / 2}`;}
+        else if(i < 2){elm.classList.add("overlap"); hoop = elm;}
         gameDiv.appendChild(elm);
     }
 
@@ -119,15 +121,6 @@ function beginBasketBall()
     div.appendChild(ball);
 }
 
-function moveSS()
-{
-    let ss; let hoop;
-    ss = document.getElementById("sweetSpot");
-    hoop = document.getElementById("hoop");
-    ss.style.marginLeft = `${(hoop.offsetWidth - ss.offsetWidth) / 2}`;
-    alert(ss.style.marginLeft);
-}
-
 function handleSweetSpot()
 {
     alert("correct");
@@ -137,5 +130,3 @@ function handleNonSweetSpot()
 {
     alert("incorrect");
 }
-
-window.onload = moveSS;
