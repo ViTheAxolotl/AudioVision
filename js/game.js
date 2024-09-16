@@ -85,7 +85,7 @@ function init()
 
 function handleBegin()
 {
-    switch(wholeAccounts[user]["game"])
+    switch(wholeAccounts[user]["game"].toLowerCase())
     {
         case "basketball":
             beginBasketBall();
