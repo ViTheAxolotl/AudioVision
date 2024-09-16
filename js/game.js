@@ -97,6 +97,8 @@ function beginBasketBall()
 {
     let gameDiv = document.createElement("div");
     gameDiv.id = "gameDiv";
+    div.appendChild(gameDiv);
+    
     let label = ["sweetSpot", "backBoard", "hoop"];
     let ss, hoop;
 
@@ -119,7 +121,6 @@ function beginBasketBall()
     ball.src = "images/game/basketball.png";
 
     div.onmouseup = handleNonSweetSpot;
-    div.appendChild(gameDiv);
     div.appendChild(ball);
 }
 
