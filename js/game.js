@@ -118,12 +118,17 @@ function beginBasketBall()
     div.appendChild(gameDiv);
     div.appendChild(ball);
     
-    setTimeout(function () {let ss; let hoop;
-        ss = document.getElementById("sweetSpot");
-        hoop = document.getElementById("hoop");
-        ss.style.marginLeft = `${(hoop.offsetWidth - ss.offsetWidth) / 2}`;}, 1000);
-        alert(ss.style.marginLeft);
+    setTimeout(moveSS, 1000);
+    alert(ss.style.marginLeft);
     
+}
+
+function moveSS()
+{
+    let ss; let hoop;
+    ss = document.getElementById("sweetSpot");
+    hoop = document.getElementById("hoop");
+    ss.style.marginLeft = `${(hoop.offsetWidth - ss.offsetWidth) / 2}`;
 }
 
 function handleSweetSpot()
