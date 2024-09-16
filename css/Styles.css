@@ -264,6 +264,13 @@ button
     position: absolute;
 }
 
+#ball
+{
+    position: "absolute";
+    bottom: "-50vh";
+    left: "70vh";
+}
+
 @media (max-width: 1399px) 
 {
     .col-md-6
