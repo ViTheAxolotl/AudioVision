@@ -111,17 +111,17 @@ function beginBasketBall()
         gameDiv.appendChild(elm);
     }
 
-    div.appendChild(gameDiv);
-    ss = document.getElementById("sweetSpot");
-    hoop = document.getElementById("hoop");
-    ss.style.marginLeft = `${(hoop.style.width - ss.style.width) / 2}`;
-
     let ball = document.createElement("img");
     ball.id = "ball";
     ball.src = "images/game/basketball.png";
 
     div.onmouseup = handleNonSweetSpot;
+    div.appendChild(gameDiv);
     div.appendChild(ball);
+    
+    ss = document.getElementById("sweetSpot");
+    hoop = document.getElementById("hoop");
+    ss.style.marginLeft = `${(hoop.style.width - ss.style.width) / 2}`;
 }
 
 function handleSweetSpot()
