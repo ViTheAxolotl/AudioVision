@@ -274,8 +274,7 @@ button
 
 .hoop
 {
-    width: 5vh;
-    height: 5vh;
+    width: 33vh;
 }
 
 @media (max-width: 1399px) 
