@@ -89,6 +89,20 @@ function handleBegin()
     {
         case "basketball":
             beginBasketBall();
+
+            window.addEventListener('click', function(e){   
+                if(document.getElementById('sweetSpot').contains(e.target))
+                {
+                  // Clicked in box
+                  alert("correct");
+                } 
+                
+                else
+                {
+                  // Clicked outside the box
+                  alert("incorrect");
+                }
+              });
             break;
     }
 }
@@ -117,7 +131,7 @@ function beginBasketBall()
     ball.src = "images/game/basketball.png";
     ball.ondragend = function (ev) {ev.preventDefault();};
 
-    div.parentElement.ondragend = handleStopDrag;
+    //div.parentElement.ondragend = handleStopDrag;
     div.appendChild(gameDiv);
     div.appendChild(ball);
 }
@@ -126,7 +140,7 @@ function handleStopDrag()
 {
     if(this.id == "sweetSpot")
     {
-        alert("correct");
+        
     }
 
     else if(this.id == div.id)
