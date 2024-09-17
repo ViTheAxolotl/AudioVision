@@ -262,6 +262,7 @@ button
 .overlap
 {
     position: absolute;
+    display: block;
 }
 
 #ball
