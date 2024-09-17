@@ -108,7 +108,7 @@ function beginBasketBall()
         let elm = document.createElement("img");
         elm.id = label[i];
         elm.src = `images/game/${label[i]}.png`;
-        if(i == 0){elm.onmouseup = handleSweetSpot; elm.style.display = "block"; elm.onload = () => {document.getElementById("gameDiv").style.width = hoop.offsetWidth;};}
+        if(i == 0){elm.onmouseup = handleSweetSpot; elm.style.display = "block"; elm.onload = () => {document.getElementById("gameDiv").offsetWidth = hoop.offsetWidth;};}
         else if(i > 0){elm.classList.add("overlap"); hoop = elm;}
         gameDiv.appendChild(elm);
     }
