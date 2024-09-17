@@ -99,6 +99,7 @@ function beginBasketBall()
 {
     let gameDiv = document.createElement("div");
     gameDiv.id = "gameDiv";
+    gameDiv.classList.add("center");
 
     let label = ["sweetSpot", "backBoard", "hoop"];
     
@@ -107,7 +108,7 @@ function beginBasketBall()
         let elm = document.createElement("img");
         elm.id = label[i];
         elm.src = `images/game/${label[i]}.png`;
-        if(i == 0){elm.onmouseup = handleSweetSpot; elm.style.display = "block"; ss = elm; elm.onload = () => {elm.style.marginLeft = `${(hoop.offsetWidth - ss.offsetWidth)}`; alert(elm.style.marginLeft);};}
+        if(i == 0){elm.onmouseup = handleSweetSpot; elm.style.display = "block"; elm.onload = () => {document.getElementById("gameDiv").style.width = hoop.style.width};}
         else if(i > 0){elm.classList.add("overlap"); hoop = elm;}
         gameDiv.appendChild(elm);
     }
