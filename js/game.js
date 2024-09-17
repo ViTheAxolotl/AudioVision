@@ -118,7 +118,7 @@ function beginBasketBall()
     ball.ondragend = function (ev) {ev.preventDefault();};
 
     div.parentElement.ondragend = function(e) {
-        if(e.target = document.getElementById('sweetSpot')) {
+        if(e.target == document.getElementById('sweetSpot')) {
             alert("correct");
         } else {
             alert("incorrect");
