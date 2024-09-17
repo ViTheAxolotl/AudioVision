@@ -100,6 +100,7 @@ function beginBasketBall()
     let gameDiv = document.createElement("div");
     gameDiv.id = "gameDiv";
     gameDiv.classList = "center hoop";
+    gameDiv.style.position = "absolute";
 
     let label = ["sweetSpot", "backBoard", "hoop"];
     
