@@ -117,7 +117,7 @@ function beginBasketBall()
     ball.src = "images/game/basketball.png";
     ball.ondragend = function (ev) {ev.preventDefault();};
 
-    div.ondragend = handleNonSweetSpot;
+    div.onmouseup = handleNonSweetSpot;
     div.appendChild(gameDiv);
     div.appendChild(ball);
 }
