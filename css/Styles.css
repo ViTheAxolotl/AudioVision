@@ -265,14 +265,6 @@ button
     display: block;
 }
 
-#ball
-{
-    position: absolute;
-    bottom: -50vh;
-    left: 70vh;
-    height: 70%;
-}
-
 .hoop
 {
     width: 33vh;
