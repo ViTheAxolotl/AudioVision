@@ -272,6 +272,12 @@ button
     height: 70%;
 }
 
+.hoop
+{
+    width: 5vh;
+    height: 5vh;
+}
+
 @media (max-width: 1399px) 
 {
     .col-md-6
