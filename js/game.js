@@ -117,7 +117,7 @@ function beginBasketBall()
     ball.src = "images/game/basketball.png";
     ball.ondragend = function (ev) {ev.preventDefault();};
 
-    div.ondragend = handleStopDrag;
+    div.parentElement.ondragend = handleStopDrag;
     div.appendChild(gameDiv);
     div.appendChild(ball);
 }
