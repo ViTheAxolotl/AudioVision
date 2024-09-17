@@ -51,8 +51,6 @@ let display = document.getElementById("display");
 let snd = new Audio();
 let plays;
 let firstRun = true;
-let ss;
-let hoop;
 
 /**
  * Runs when user is logged in sets up category

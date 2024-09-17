@@ -230,6 +230,7 @@ button
 #match
 {
     min-height: 80vh;
+    position: relative;
 }
 
 .imgBtn
@@ -269,11 +270,6 @@ button
 {
     position: absolute;
     bottom: 0;
-}
-
-#game
-{
-    position: relative;
 }
 
 .hoop
