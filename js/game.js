@@ -115,6 +115,7 @@ function beginBasketBall()
     let ball = document.createElement("img");
     ball.id = "ball";
     ball.src = "images/game/basketball.png";
+    ball.ondragstart = function (ev) {ev.preventDefault();};
 
     div.onmouseup = handleNonSweetSpot;
     div.appendChild(gameDiv);
