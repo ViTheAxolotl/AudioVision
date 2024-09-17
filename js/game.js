@@ -90,7 +90,7 @@ function handleBegin()
         case "basketball":
             beginBasketBall();
 
-            window.addEventListener('click', function(e){   
+            window.addEventListener("Drag'n'drop", function(e){   
                 if(document.getElementById('sweetSpot').contains(e.target))
                 {
                   // Clicked in box
