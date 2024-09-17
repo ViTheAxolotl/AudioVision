@@ -107,7 +107,7 @@ function beginBasketBall()
         let elm = document.createElement("img");
         elm.id = label[i];
         elm.src = `images/game/${label[i]}.png`;
-        if(i == 0){elm.ondragend = handleStopDrag;}
+        if(i == 0){elm.ondragend = handleStopDrag; elm.style.zIndex = 100;}
         else if(i > 0){elm.classList.add("overlap"); elm.classList.add("hoop");}
         gameDiv.appendChild(elm);
     }
