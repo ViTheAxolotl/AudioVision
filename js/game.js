@@ -130,9 +130,8 @@ function allowDrop(ev)
 function handleStopDrag(ev)
 {
     const data = ev.dataTransfer.getData("text");
-    const element = document.getElementById(data);
 
-    if(element.id == "ball")
+    if(data.includes("ball"))
     {
         ev.preventDefault();
 
