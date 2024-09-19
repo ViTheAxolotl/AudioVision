@@ -118,9 +118,14 @@ function beginBasketBall()
     ball.ondragend = function (ev) {ev.preventDefault();};
 
     document.getElementById("match").addEventListener("drop", handleStopDrag);
+    document.getElementById("match").addEventListener("dragover", allowDrop);
     div.appendChild(gameDiv);
     div.appendChild(ball);
 }
+
+function allowDrop(ev) {
+    ev.preventDefault();
+  }
 
 function handleStopDrag(ev)
 {
