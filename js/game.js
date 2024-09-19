@@ -129,15 +129,21 @@ function allowDrop(ev)
 
 function handleStopDrag(ev)
 {
-    ev.preventDefault();
+    const data = ev.dataTransfer.getData("text");
+    const element = document.getElementById(data);
 
-    if(ev.target.id == "sweetSpot")
+    if(element.id == "ball")
     {
-        alert("correct");
-    }
+        ev.preventDefault();
 
-    else
-    {
-        alert("incorrect");
+        if(ev.target.id == "sweetSpot")
+        {
+            alert("correct");
+        }
+    
+        else
+        {
+            alert("incorrect");
+        }
     }
 }
