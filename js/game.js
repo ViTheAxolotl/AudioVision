@@ -115,6 +115,7 @@ function beginBasketBall()
     let ball = document.createElement("img");
     ball.id = "ball";
     ball.src = "images/game/basketball.png";
+    ball.addEventListener("hold", function (ev) {ev.preventDefault();});
 
     document.getElementById("match").addEventListener("drop", handleStopDrag);
     document.getElementById("match").addEventListener("dragover", allowDrop);

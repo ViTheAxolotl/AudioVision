@@ -156,6 +156,7 @@ function createCoverAndHelp()
     let helpBtn = document.createElement("img");
     helpBtn.id = "helpBtn";
     helpBtn.src = "images/helpBtn.png";
+    helpBtn.style.zIndex = 1000;
     helpBtn.onclick = function () {handleViewTokens(this)};
     placeBefore(helpBtn, div[0].firstChild);
     placeBefore(coverDiv, div[0].firstChild);
