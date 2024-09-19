@@ -3,6 +3,7 @@
 import { ref, onValue } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js';
 import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 import { toTitleCase, auth, database, setDoc, placeBefore, playSound } from './viMethods.js';
+import { doc } from 'firebase/firestore/lite';
 
 /**
  * When anything under this changes it will use onValue
@@ -117,7 +118,7 @@ function beginBasketBall()
     ball.src = "images/game/basketball.png";
     ball.ondragend = function (ev) {ev.preventDefault();};
 
-    div.addEventListener("drop", handleStopDrag);
+    document.getElementById("match").addEventListener("drop", handleStopDrag);
     div.appendChild(gameDiv);
     div.appendChild(ball);
 }
