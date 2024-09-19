@@ -136,7 +136,7 @@ function handleStopDrag(ev)
         alert("correct");
     }
 
-    else if(ev.target.id == div.id)
+    else
     {
         alert("incorrect");
     }
