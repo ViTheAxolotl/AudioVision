@@ -117,7 +117,7 @@ function beginBasketBall()
     ball.src = "images/game/basketball.png";
     ball.ondragend = function (ev) {ev.preventDefault();};
 
-    div.ondrop = function(e) {
+    document.getElementById("match").ondrop = function(e) {
         if(e.target == document.getElementById('sweetSpot')) {
             alert("correct");
         } else {
