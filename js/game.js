@@ -117,25 +117,21 @@ function beginBasketBall()
     ball.src = "images/game/basketball.png";
     ball.ondragend = function (ev) {ev.preventDefault();};
 
-    document.getElementById("match").ondrop = function(e) {
-        if(e.target == document.getElementById('sweetSpot')) {
-            alert("correct");
-        } else {
-            alert("incorrect");
-        }
-      }
+    div.addEventListener("drop", handleStopDrag);
     div.appendChild(gameDiv);
     div.appendChild(ball);
 }
 
-function handleStopDrag()
+function handleStopDrag(ev)
 {
-    if(this.id == "sweetSpot")
+    ev.preventDefault();
+
+    if(ev.target.id == "sweetSpot")
     {
         alert("correct");
     }
 
-    else if(this.id == div.id)
+    else if(ev.target.id == div.id)
     {
         alert("incorrect");
     }
