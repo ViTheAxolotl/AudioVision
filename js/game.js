@@ -115,7 +115,11 @@ function beginBasketBall()
     let ball = document.createElement("img");
     ball.id = "ball";
     ball.src = "images/game/basketball.png";
-    ball.addEventListener("hold", function (ev) {ev.preventDefault();});
+    ball.addEventListener("hold", function(ev){ev.preventDefault();});
+    ball.setAttribute('draggable', true);
+    ball.addEventListener('dragstart', function(ev){ev.dataTransfer.setData('text/plain', 'hello');});
+    ball.addEventListener('drop', function(ev){ev.preventDefault();});
+    ball.addEventListener('dragover', function(ev){ev.preventDefault();});
 
     document.getElementById("match").addEventListener("drop", handleStopDrag);
     document.getElementById("match").addEventListener("dragover", allowDrop);
