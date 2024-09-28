@@ -120,6 +120,7 @@ function beginBasketBall()
     ball.addEventListener('dragstart', function(ev){});
     ball.addEventListener('drop', function(ev){ev.preventDefault();});
     ball.addEventListener('dragover', function(ev){ev.preventDefault();});
+    ball.ondrop = function(ev){ev.preventDefault();};
 
     document.getElementById("match").addEventListener("drop", handleStopDrag);
     document.getElementById("match").addEventListener("dragover", allowDrop);
