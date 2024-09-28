@@ -95,6 +95,8 @@ function handleBegin()
 
 function beginBasketBall()
 {
+    document.body.style.webkitTouchCallout='none';
+    
     let gameDiv = document.createElement("div");
     gameDiv.id = "gameDiv";
     gameDiv.classList = "center hoop";
