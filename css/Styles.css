@@ -278,6 +278,7 @@ button
 #ball:-webkit-drag
 {
     position: relative;
+    transform: none;
 }
 
 .hoop
