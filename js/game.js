@@ -96,7 +96,7 @@ function handleBegin()
 function beginBasketBall()
 {
     document.body.style.webkitTouchCallout='none';
-    
+
     let gameDiv = document.createElement("div");
     gameDiv.id = "gameDiv";
     gameDiv.classList = "center hoop";
@@ -119,7 +119,7 @@ function beginBasketBall()
     ball.src = "images/game/basketball.png";
     ball.addEventListener("hold", function(ev){ev.preventDefault();});
     ball.setAttribute('draggable', true);
-    ball.addEventListener('dragstart', function(ev){ev.stopPropagation(); ev.dataTransfer.dropEffect = 'move'; ev.dataTransfer.setData('text/plain', 'ball');});
+    ball.addEventListener('dragstart', function(ev){ev.stopPropagation(); ev.dataTransfer.setData('text/plain', 'ball');});
     ball.addEventListener('drop', function(ev){ev.preventDefault(); ev.stopPropagation();});
     ball.addEventListener('dragover', function(ev){ev.stopPropagation(); ev.preventDefault(); ev.dataTransfer.dropEffect = 'copy';});
     ball.ondrop = function(ev){ev.preventDefault();};
