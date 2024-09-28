@@ -52,7 +52,6 @@ let snd = new Audio();
 let plays;
 let firstRun = true;
 let startPos = [];
-let endPos = [];
 let xMovement;
 let yMovement;
 
@@ -123,7 +122,7 @@ function beginBasketBall()
     ball.src = "images/game/basketball.jpg";
     ball.setAttribute('draggable', true);
     ball.addEventListener('dragstart', function(ev){ev.dataTransfer.setData('text/plain', 'ball'); ev.dataTransfer.effectAllowed = 'move'; startPos = [ev.x, ev.y];});
-    ball.addEventListener('drop', function(ev){ev.preventDefault(); ev.src = "images/game/basketball.png"; endPos = [ev.x, ev.y];});
+    ball.addEventListener('drop', function(ev){ev.preventDefault(); ev.src = "images/game/basketball.png";});
     ball.ondrop = function(ev){ev.preventDefault();};
 
     document.getElementById("match").addEventListener("drop", handleStopDrag);
@@ -144,8 +143,8 @@ function handleStopDrag(ev)
     if(data.includes("ball"))
     {
         ev.preventDefault();
-        xMovement = startPos[0] - endPos[0];
-        yMovement = startPos[1] - endPos[1];
+        xMovement = startPos[0] - ev.x;
+        yMovement = startPos[1] - ev.y;
 
         while(xMovement != 0 || yMovement != 0)
         {
