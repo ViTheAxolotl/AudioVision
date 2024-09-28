@@ -51,6 +51,10 @@ let display = document.getElementById("display");
 let snd = new Audio();
 let plays;
 let firstRun = true;
+let startPos = [];
+let endPos = [];
+let xMovement;
+let yMovement;
 
 /**
  * Runs when user is logged in sets up category
@@ -118,8 +122,8 @@ function beginBasketBall()
     ball.id = "ball";
     ball.src = "images/game/basketball.jpg";
     ball.setAttribute('draggable', true);
-    ball.addEventListener('dragstart', function(ev){ev.dataTransfer.setData('text/plain', 'ball'); ev.dataTransfer.effectAllowed = 'move'});
-    ball.addEventListener('drop', function(ev){ev.preventDefault(); ev.src = "images/game/basketball.png"});
+    ball.addEventListener('dragstart', function(ev){ev.dataTransfer.setData('text/plain', 'ball'); ev.dataTransfer.effectAllowed = 'move'; startPos = [ev.x, ev.y];});
+    ball.addEventListener('drop', function(ev){ev.preventDefault(); ev.src = "images/game/basketball.png"; endPos = [ev.x, ev.y];});
     ball.ondrop = function(ev){ev.preventDefault();};
 
     document.getElementById("match").addEventListener("drop", handleStopDrag);
@@ -140,6 +144,14 @@ function handleStopDrag(ev)
     if(data.includes("ball"))
     {
         ev.preventDefault();
+        xMovement = startPos[0] - endPos[0];
+        yMovement = startPos[1] - endPos[1];
+
+        while(xMovement != 0 || yMovement != 0)
+        {
+            setTimeout(function(){moveImg(xMovement, yMovement, ev)}, 100);
+            
+        }
 
         if(ev.target.id == "sweetSpot")
         {
@@ -150,5 +162,32 @@ function handleStopDrag(ev)
         {
             alert("incorrect");
         }
+    }
+}
+
+function moveImg(x, y, ev)
+{
+    if(x > 0)
+    {
+        ev.x++;
+        xMovement--;
+    }
+
+    else
+    {
+        ev.x--;
+        xMovement++;
+    }
+
+    if(y > 0)
+    {
+        ev.y++;
+        yMovement--;
+    }
+
+    else
+    {
+        ev.y--;
+        yMovement--;
     }
 }
