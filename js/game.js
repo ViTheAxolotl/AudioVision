@@ -119,8 +119,8 @@ function beginBasketBall()
     ball.src = "images/game/basketball.png";
     ball.addEventListener("hold", function(ev){ev.preventDefault();});
     ball.setAttribute('draggable', true);
-    ball.addEventListener('dragstart', function(ev){ev.stopPropagation(); ev.dataTransfer.setData('text/plain', 'ball');});
-    ball.addEventListener('drop', function(ev){ev.preventDefault(); ev.stopPropagation();});
+    ball.addEventListener('dragstart', function(ev){ev.dataTransfer.setData('text/plain', 'ball');});
+    ball.addEventListener('drop', function(ev){ev.preventDefault();});
     ball.addEventListener('dragover', function(ev){ev.preventDefault();});
     ball.ondrop = function(ev){ev.preventDefault();};
 
