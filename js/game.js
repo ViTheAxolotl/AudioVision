@@ -183,6 +183,8 @@ function moveImg(x, y, ev)
 
         if(bottom == parseFloat(getComputedStyle(ball.parentElement.parentElement).bottom.replace("px", '')))
         {
+            setDoc(`Accounts/${user}/plays`, plays - 1);
+
             if(ev.target.id == "sweetSpot")
             {
                 alert("correct");
