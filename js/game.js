@@ -52,8 +52,6 @@ let snd = new Audio();
 let plays;
 let firstRun = true;
 let startPos = [];
-let xMovement;
-let yMovement;
 
 /**
  * Runs when user is logged in sets up category
@@ -143,8 +141,8 @@ function handleStopDrag(ev)
     if(data.includes("ball"))
     {
         ev.preventDefault();
-        xMovement = startPos[0] - ev.x;
-        yMovement = startPos[1] - ev.y;
+        let xMovement = startPos[0] - ev.x;
+        let yMovement = startPos[1] - ev.y;
 
         while(xMovement != 0 || yMovement != 0)
         {
@@ -166,27 +164,6 @@ function handleStopDrag(ev)
 
 function moveImg(x, y, ev)
 {
-    if(x > 0)
-    {
-        ev.x++;
-        xMovement--;
-    }
-
-    else
-    {
-        ev.x--;
-        xMovement++;
-    }
-
-    if(y > 0)
-    {
-        ev.y++;
-        yMovement--;
-    }
-
-    else
-    {
-        ev.y--;
-        yMovement--;
-    }
+    setTimeout(function() {if(x - 1 > 0){moveImg(x - 1, y, ev)} else if(x + 1 < 0){moveImg(x + 1, y, ev)}}, 100);
+    setTimeout(function() {if(y - 1 > 0){moveImg(x, y - 1, ev)} else if(y + 1 < 0){moveImg(x, y + 1, ev)}}, 100);
 }
