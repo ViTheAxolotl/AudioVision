@@ -52,6 +52,7 @@ let snd = new Audio();
 let plays;
 let firstRun = true;
 let startPos = [];
+let ball = document.getElementById("ball");
 
 /**
  * Runs when user is logged in sets up category
@@ -143,7 +144,7 @@ function handleStopDrag(ev)
         ev.preventDefault();
         let xMovement = startPos[0] - ev.x;
         let yMovement = startPos[1] - ev.y;
-        moveImg(xMovement, yMovement, document.getElementById("ball"));
+        moveImg(xMovement, yMovement);
 
         if(ev.target.id == "sweetSpot")
         {
@@ -157,11 +158,11 @@ function handleStopDrag(ev)
     }
 }
 
-function moveImg(x, y, ev)
+function moveImg(x, y)
 {
-    let bottom = parseFloat(ev.style.bottom.replace("%", ''));
-    let left = parseFloat(ev.style.left.replace("%", ''));
+    let bottom = parseFloat(ball.style.bottom.replace("%", ''));
+    let left = parseFloat(ball.style.left.replace("%", ''));
 
-    setTimeout(function() {if(x - 1 > 0){ev.style.left = `${left - 1}%`; moveImg(x - 1, y, ev)} else if(x + 1 < 0){ev.style.left = `${left + 1}%`; moveImg(x + 1, y, ev)}}, 100);
-    setTimeout(function() {if(y - 1 > 0){ev.style.bottom = `${bottom - 1}%`; moveImg(x, y - 1, ev)} else if(y + 1 < 0){ev.style.bottom = `${bottom + 1}%`; moveImg(x, y + 1, ev)}}, 100);
+    setTimeout(function() {if(x - 1 > 0){ball.style.left = `${left - 1}%`; moveImg(x - 1, y, ev)} else if(x + 1 < 0){ball.style.left = `${left + 1}%`; moveImg(x + 1, y, ev)}}, 100);
+    setTimeout(function() {if(y - 1 > 0){ball.style.bottom = `${bottom - 1}%`; moveImg(x, y - 1, ev)} else if(y + 1 < 0){ball.style.bottom = `${bottom + 1}%`; moveImg(x, y + 1, ev)}}, 100);
 }
