@@ -120,7 +120,7 @@ function beginBasketBall()
     let ball = document.createElement("img");
     ball.id = "ball";
     ball.src = "images/game/basketball.jpg";
-    ball.style.zIndex = 1;
+    ball.style.zIndex = 10;
     ball.setAttribute('draggable', true);
     ball.addEventListener('dragstart', function(ev){ev.dataTransfer.setData('text/plain', 'ball'); ev.dataTransfer.effectAllowed = 'move'; startPos = [ev.x, ev.y];});
     ball.addEventListener('drop', function(ev){ev.preventDefault();});
@@ -180,6 +180,7 @@ function moveImg(x, y, ev)
     {
         ball.style.bottom = `${bottom - 1}px`;
 
+        alert(`${ball.style.zIndex} ${document.getElementById("hoop").style.zIndex}`);
         if(bottom == parseFloat(getComputedStyle(ball.parentElement.parentElement).bottom.replace("px", '')))
         {
             if(ev.target.id == "sweetSpot")
