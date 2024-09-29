@@ -122,7 +122,7 @@ function beginBasketBall()
     ball.src = "images/game/basketball.jpg";
     ball.setAttribute('draggable', true);
     ball.addEventListener('dragstart', function(ev){ev.dataTransfer.setData('text/plain', 'ball'); ev.dataTransfer.effectAllowed = 'move'; startPos = [ev.x, ev.y];});
-    ball.addEventListener('drop', function(ev){ev.preventDefault(); ball.src = "images/game/basketball.png";});
+    ball.addEventListener('drop', function(ev){ev.preventDefault(); document.getElementById("ball").src = "images/game/basketball.png";});
     ball.ondrop = function(ev){ev.preventDefault();};
 
     document.getElementById("match").addEventListener("drop", handleStopDrag);
