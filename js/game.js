@@ -164,15 +164,7 @@ function moveImg(x, y, ev)
         
         if(x == left && y == bottom)
         {
-            if(ev.target.id == "sweetSpot")
-            {
-                alert("correct");
-            }
-        
-            else
-            {
-                alert("incorrect");
-            }
+            gravity = true;
         }
 
         else
