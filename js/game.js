@@ -165,11 +165,12 @@ function moveImg(x, y, ev)
         if(x == left && y == bottom)
         {
             gravity = true;
+            moveImg(x, y, ev);
         }
 
         else
         {
-            setTimeout(function(){moveImg(x, y, ev)}, 1);
+            setTimeout(function(){moveImg(x, y, ev)}, 10);
         }
     }
     
@@ -192,7 +193,7 @@ function moveImg(x, y, ev)
 
         else
         {
-            setTimeout(function(){moveImg(x, y, ev)}, 1);
+            setTimeout(function(){moveImg(x, y, ev)}, 10);
         }
     }
 }
