@@ -52,7 +52,7 @@ let snd = new Audio();
 let plays;
 let firstRun = true;
 let startPos = [];
-let ball = document.getElementById("ball");
+let ball;
 
 /**
  * Runs when user is logged in sets up category
@@ -141,6 +141,7 @@ function handleStopDrag(ev)
 
     if(data.includes("ball"))
     {
+        ball = document.getElementById("ball");
         ev.preventDefault();
         let xMovement = startPos[0] - ev.x;
         let yMovement = startPos[1] - ev.y;
