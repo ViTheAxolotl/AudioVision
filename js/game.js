@@ -112,7 +112,7 @@ function beginBasketBall()
         let elm = document.createElement("img");
         elm.id = label[i];
         elm.src = `images/game/${label[i]}.png`;
-        if(i == 0 || i == 2){elm.style.zIndex = "100";}
+        if(i == 0){elm.style.zIndex = "100";}
         else if(i > 0){elm.classList.add("overlap"); elm.classList.add("hoop");}
         gameDiv.appendChild(elm);
     }
