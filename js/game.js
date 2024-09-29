@@ -144,9 +144,24 @@ function handleStopDrag(ev)
         ball = document.getElementById("ball");
         ev.preventDefault();
         
-        moveImg(ev.x, ev.y);
+        moveImg(ev.x, ev.y, ev);
+    }
+}
 
-        /*if(ev.target.id == "sweetSpot")
+function moveImg(x, y, ev)
+{
+    let bottom = parseFloat(getComputedStyle(ball).bottom.replace("px", ''));
+    let left = parseFloat(getComputedStyle(ball).left.replace("px", ''));
+
+    if(x < left){ball.style.left = `${left - 1}px`;} 
+    else if(x > left){ball.style.left = `${left + 1}px`;}
+
+    if(y < bottom){ball.style.bottom = `${bottom - 1}px`;} 
+    else if(y > bottom){ball.style.bottom = `${bottom + 1}px`;}
+    
+    if(x == left && y == bottom)
+    {
+        if(ev.target.id == "sweetSpot")
         {
             alert("correct");
         }
@@ -154,14 +169,11 @@ function handleStopDrag(ev)
         else
         {
             alert("incorrect");
-        }*/
+        }
     }
-}
 
-function moveImg(x, y)
-{
-    let bottom = parseFloat(getComputedStyle(ball).bottom.replace("px", ''));
-    let left = parseFloat(getComputedStyle(ball).left.replace("px", ''));
-    setTimeout(function() {if(x < left){ball.style.left = `${left - 1}px`; moveImg(x, y)} else if(x > left){ball.style.left = `${left + 1}px`; moveImg(x, y)}}, 1);
-    setTimeout(function() {if(y < bottom){ball.style.bottom = `${bottom - 1}px`; moveImg(x, y)} else if(y > bottom){ball.style.bottom = `${bottom + 1}px`; moveImg(x, y)}}, 1);
+    else
+    {
+        setTimeout(function(){moveImg(x, y, ev)});
+    }
 }
