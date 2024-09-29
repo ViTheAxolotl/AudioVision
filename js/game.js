@@ -53,6 +53,7 @@ let plays;
 let firstRun = true;
 let startPos = [];
 let ball;
+let gravity = false;
 
 /**
  * Runs when user is logged in sets up category
@@ -153,27 +154,53 @@ function moveImg(x, y, ev)
     let bottom = parseFloat(getComputedStyle(ball).bottom.replace("px", ''));
     let left = parseFloat(getComputedStyle(ball).left.replace("px", ''));
 
-    if(x < left){ball.style.left = `${left - 1}px`;} 
-    else if(x > left){ball.style.left = `${left + 1}px`;}
-
-    if(y < bottom){ball.style.bottom = `${bottom - 1}px`;} 
-    else if(y > bottom){ball.style.bottom = `${bottom + 1}px`;}
-    
-    if(x == left && y == bottom)
+    if(!gravity)
     {
-        if(ev.target.id == "sweetSpot")
+        if(x < left){ball.style.left = `${left - 1}px`;} 
+        else if(x > left){ball.style.left = `${left + 1}px`;}
+
+        if(y < bottom){ball.style.bottom = `${bottom - 1}px`;} 
+        else if(y > bottom){ball.style.bottom = `${bottom + 1}px`;}
+        
+        if(x == left && y == bottom)
         {
-            alert("correct");
+            if(ev.target.id == "sweetSpot")
+            {
+                alert("correct");
+            }
+        
+            else
+            {
+                alert("incorrect");
+            }
         }
-    
+
         else
         {
-            alert("incorrect");
+            setTimeout(function(){moveImg(x, y, ev)}, 1);
         }
     }
-
+    
     else
     {
-        setTimeout(function(){moveImg(x, y, ev)});
+        ball.style.bottom = `${bottom + 1}px`;
+
+        if(bottom == parseFloat(getComputedStyle(ball.parentElement.parentElement).bottom.replace("px", '')))
+        {
+            if(ev.target.id == "sweetSpot")
+            {
+                alert("correct");
+            }
+        
+            else
+            {
+                alert("incorrect");
+            }
+        }
+
+        else
+        {
+            setTimeout(function(){moveImg(x, y, ev)}, 1);
+        }
     }
 }
