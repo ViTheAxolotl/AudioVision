@@ -2,7 +2,7 @@
 
 import { ref, onValue } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js';
 import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-import { toTitleCase, auth, database, setDoc, placeBefore, playSound } from './viMethods.js';
+import { toTitleCase, auth, database, setDoc, placeBefore, playSound, reload } from './viMethods.js';
 
 /**
  * When anything under this changes it will use onValue
@@ -120,6 +120,7 @@ function beginBasketBall()
     let ball = document.createElement("img");
     ball.id = "ball";
     ball.src = "images/game/basketball.jpg";
+    ball.style.zIndex = 1;
     ball.setAttribute('draggable', true);
     ball.addEventListener('dragstart', function(ev){ev.dataTransfer.setData('text/plain', 'ball'); ev.dataTransfer.effectAllowed = 'move'; startPos = [ev.x, ev.y];});
     ball.addEventListener('drop', function(ev){ev.preventDefault();});
@@ -184,11 +185,13 @@ function moveImg(x, y, ev)
             if(ev.target.id == "sweetSpot")
             {
                 alert("correct");
+                reload(1);
             }
         
             else
             {
                 alert("incorrect");
+                reload(1);
             }
         }
 
