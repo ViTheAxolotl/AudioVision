@@ -180,7 +180,6 @@ function moveImg(x, y, ev)
     {
         ball.style.bottom = `${bottom - 1}px`;
 
-        alert(`${ball.style.zIndex} ${document.getElementById("hoop").style.zIndex}`);
         if(bottom == parseFloat(getComputedStyle(ball.parentElement.parentElement).bottom.replace("px", '')))
         {
             if(ev.target.id == "sweetSpot")
