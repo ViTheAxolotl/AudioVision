@@ -147,7 +147,7 @@ function handleStopDrag(ev)
         let yMovement = startPos[1] - ev.y;
         moveImg(xMovement, yMovement);
 
-        if(ev.target.id == "sweetSpot")
+        /*if(ev.target.id == "sweetSpot")
         {
             alert("correct");
         }
@@ -155,7 +155,7 @@ function handleStopDrag(ev)
         else
         {
             alert("incorrect");
-        }
+        }*/
     }
 }
 
