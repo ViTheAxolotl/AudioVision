@@ -176,7 +176,7 @@ function moveImg(x, y, ev)
     
     else
     {
-        ball.style.bottom = `${bottom + 1}px`;
+        ball.style.bottom = `${bottom - 1}px`;
 
         if(bottom == parseFloat(getComputedStyle(ball.parentElement.parentElement).bottom.replace("px", '')))
         {
