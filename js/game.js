@@ -143,9 +143,8 @@ function handleStopDrag(ev)
     {
         ball = document.getElementById("ball");
         ev.preventDefault();
-        let xMovement = startPos[0] - ev.x;
-        let yMovement = startPos[1] - ev.y;
-        moveImg(xMovement, yMovement);
+        
+        moveImg(ev.x, ev.y);
 
         /*if(ev.target.id == "sweetSpot")
         {
@@ -163,7 +162,6 @@ function moveImg(x, y)
 {
     let bottom = parseFloat(getComputedStyle(ball).bottom.replace("px", ''));
     let left = parseFloat(getComputedStyle(ball).left.replace("px", ''));
-
-    setTimeout(function() {if(x - 1 > 0){ball.style.left = `${left - 1}px`; moveImg(x - 1, y)} else if(x + 1 < 0){ball.style.left = `${left + 1}px`; moveImg(x + 1, y)}}, 10);
-    setTimeout(function() {if(y - 1 > 0){ball.style.bottom = `${bottom - 1}px`; moveImg(x, y - 1)} else if(y + 1 < 0){ball.style.bottom = `${bottom + 1}px`; moveImg(x, y + 1)}}, 10);
+    setTimeout(function() {if(x < left){ball.style.left = `${left - 1}px`; moveImg(x, y)} else if(x > left){ball.style.left = `${left + 1}px`; moveImg(x, y)}}, 10);
+    setTimeout(function() {if(y < bottom){ball.style.bottom = `${bottom - 1}px`; moveImg(x, y)} else if(y > bottom){ball.style.bottom = `${bottom + 1}px`; moveImg(x, y)}}, 10);
 }
