@@ -164,6 +164,6 @@ function moveImg(x, y)
     let bottom = parseFloat(getComputedStyle(ball).bottom.replace("px", ''));
     let left = parseFloat(getComputedStyle(ball).left.replace("px", ''));
 
-    setTimeout(function() {if(x - 1 > 0){ball.style.left = `${left - 1}px`; moveImg(x - 1, y, ev)} else if(x + 1 < 0){ball.style.left = `${left + 1}px`; moveImg(x + 1, y, ev)}}, 100);
-    setTimeout(function() {if(y - 1 > 0){ball.style.bottom = `${bottom - 1}px`; moveImg(x, y - 1, ev)} else if(y + 1 < 0){ball.style.bottom = `${bottom + 1}px`; moveImg(x, y + 1, ev)}}, 100);
+    setTimeout(function() {if(x - 1 > 0){ball.style.left = `${left - 1}px`; moveImg(x - 1, y)} else if(x + 1 < 0){ball.style.left = `${left + 1}px`; moveImg(x + 1, y)}}, 10);
+    setTimeout(function() {if(y - 1 > 0){ball.style.bottom = `${bottom - 1}px`; moveImg(x, y - 1)} else if(y + 1 < 0){ball.style.bottom = `${bottom + 1}px`; moveImg(x, y + 1)}}, 10);
 }
