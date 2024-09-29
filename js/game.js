@@ -161,8 +161,8 @@ function handleStopDrag(ev)
 
 function moveImg(x, y)
 {
-    let bottom = parseFloat(ball.style.bottom.replace("%", ''));
-    let left = parseFloat(ball.style.left.replace("%", ''));
+    let bottom = parseFloat(getComputedStyle(ball).bottom.replace("%", ''));
+    let left = parseFloat(getComputedStyle(ball).left.replace("%", ''));
 
     setTimeout(function() {if(x - 1 > 0){ball.style.left = `${left - 1}%`; moveImg(x - 1, y, ev)} else if(x + 1 < 0){ball.style.left = `${left + 1}%`; moveImg(x + 1, y, ev)}}, 100);
     setTimeout(function() {if(y - 1 > 0){ball.style.bottom = `${bottom - 1}%`; moveImg(x, y - 1, ev)} else if(y + 1 < 0){ball.style.bottom = `${bottom + 1}%`; moveImg(x, y + 1, ev)}}, 100);
