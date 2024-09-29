@@ -143,12 +143,7 @@ function handleStopDrag(ev)
         ev.preventDefault();
         let xMovement = startPos[0] - ev.x;
         let yMovement = startPos[1] - ev.y;
-
-        while(xMovement != 0 || yMovement != 0)
-        {
-            setTimeout(function(){moveImg(xMovement, yMovement, ev)}, 100);
-            
-        }
+        moveImg(xMovement, yMovement, ev);
 
         if(ev.target.id == "sweetSpot")
         {
