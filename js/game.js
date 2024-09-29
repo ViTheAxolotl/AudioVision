@@ -167,7 +167,7 @@ function moveImg(x, y, ev)
         if(x == left && y == bottom)
         {
             gravity = true;
-            document.getElementById("hoop").style.zIndex = "1000";
+            if(ev.target.id == "sweetSpot"){document.getElementById("hoop").style.zIndex = "1000";}
             moveImg(x, y, ev);
         }
 
