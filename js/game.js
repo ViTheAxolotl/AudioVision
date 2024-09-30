@@ -153,21 +153,25 @@ function handleStopDrag(ev)
 
 function moveImg(x, y, ev)
 {
+    let ballPos = ball.getBoundingClientRect();
+    let divPos = ball.parentElement.parentElement.getBoundingClientRect();
+    divPos = parseInt(`${divPos}`);
+    let ballX = parseInt(`${ballPos.x}`);
+    let ballY = parseInt(`${ballPos.y}`);
     let top = parseInt(getComputedStyle(ball).top.replace("px", ''));
-    let bottom = parseInt(getComputedStyle(ball).bottom.replace("px", ''));
     let left = parseInt(getComputedStyle(ball).left.replace("px", ''));
     x = parseInt(`${x}`);
     y = parseInt(`${y}`);
 
     if(!gravity)
     {
-        if(x < left){ball.style.left = `${left - 1}px`;} 
-        else if(x > left){ball.style.left = `${left + 1}px`;}
+        if(x < ballX){ball.style.left = `${left - 1}px`;} 
+        else if(x > ballX){ball.style.left = `${left + 1}px`;}
 
-        if(y < top){ball.style.top = `${top - 1}px`;} 
-        else if(y > top){ball.style.top = `${top + 1}px`;}
+        if(y < ballY){ball.style.top = `${top - 1}px`;} 
+        else if(y > ballY){ball.style.top = `${top + 1}px`;}
         
-        if(x == left && y == top)
+        if(x == ballX && y == ballY)
         {
             gravity = true;
             if(ev.target.id == "sweetSpot"){document.getElementById("hoop").style.zIndex = "1000";}
@@ -184,7 +188,7 @@ function moveImg(x, y, ev)
     {
         ball.style.top = `${top + 1}px`;
 
-        if(bottom == parseFloat(getComputedStyle(ball.parentElement.parentElement).bottom.replace("px", '')))
+        if(ballX == divPos.x)
         {
             alert(`${x}: ${left}, ${y}: ${top}`);
             setDoc(`Accounts/${user}/plays`, plays - 1);
