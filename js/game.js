@@ -105,7 +105,7 @@ function beginBasketBall()
     gameDiv.classList = "center hoop";
     gameDiv.style.position = "absolute";
     let test = Math.floor(Math.random() * 81);
-    gameDiv.style.top = `${Math.floor(Math.random() * 81)}`;
+    gameDiv.style.top = `${test}`;
     gameDiv.style.left = `${Math.floor(Math.random() * 81)}`;
 
     let label = ["sweetSpot", "backBoard", "hoop"];
