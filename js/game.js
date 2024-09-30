@@ -188,7 +188,7 @@ function moveImg(x, y, ev)
     {
         ball.style.top = `${top + 1}px`;
 
-        if(ballY == divPos.y)
+        if(ballY == divPos)
         {
             alert(`${x}: ${left}, ${y}: ${top}`);
             setDoc(`Accounts/${user}/plays`, plays - 1);
