@@ -155,7 +155,7 @@ function moveImg(x, y, ev)
 {
     let ballPos = ball.getBoundingClientRect();
     let divPos = ball.parentElement.parentElement.getBoundingClientRect();
-    divPos = parseInt(`${divPos}`);
+    divPos = parseInt(`${divPos.y}`);
     let ballX = parseInt(`${ballPos.x}`);
     let ballY = parseInt(`${ballPos.y}`);
     let top = parseInt(getComputedStyle(ball).top.replace("px", ''));
@@ -188,7 +188,7 @@ function moveImg(x, y, ev)
     {
         ball.style.top = `${top + 1}px`;
 
-        if(ballX == divPos.x)
+        if(ballY == divPos.y)
         {
             alert(`${x}: ${left}, ${y}: ${top}`);
             setDoc(`Accounts/${user}/plays`, plays - 1);
