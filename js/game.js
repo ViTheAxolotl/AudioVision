@@ -54,6 +54,7 @@ let firstRun = true;
 let startPos = [];
 let ball;
 let gravity = false;
+let ballBottom = undefined;
 
 /**
  * Runs when user is logged in sets up category
@@ -154,10 +155,9 @@ function handleStopDrag(ev)
 function moveImg(x, y, ev)
 {
     let ballPos = ball.getBoundingClientRect();
-    let divPos = ball.parentElement.parentElement.getBoundingClientRect();
-    divPos = parseInt(`${divPos.y}`);
     let ballX = parseInt(`${ballPos.x}`);
     let ballY = parseInt(`${ballPos.y}`);
+    if(ballBottom == undefined){ballBottom = ballY;}
     let top = parseInt(getComputedStyle(ball).top.replace("px", ''));
     let left = parseInt(getComputedStyle(ball).left.replace("px", ''));
     x = parseInt(`${x}`);
@@ -188,7 +188,7 @@ function moveImg(x, y, ev)
     {
         ball.style.top = `${top + 1}px`;
 
-        if(ballY == divPos)
+        if(ballY == ballBottom)
         {
             alert(`${x}: ${left}, ${y}: ${top}`);
             setDoc(`Accounts/${user}/plays`, plays - 1);
