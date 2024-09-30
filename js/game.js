@@ -100,15 +100,12 @@ function handleBegin()
 function beginBasketBall()
 {
     document.body.style.webkitTouchCallout = 'none';
-    let arr = [];
-    for(let i = 0; i < 81; i++){arr.push(i);}
-
     let gameDiv = document.createElement("div");
     gameDiv.id = "gameDiv";
     gameDiv.classList = "center hoop";
     gameDiv.style.position = "absolute";
-    gameDiv.style.top = `${arr[(Math.floor(Math.random() * arr.length))]}`;
-    gameDiv.style.left = `${arr[(Math.floor(Math.random() * arr.length))]}`;
+    gameDiv.style.top = `${Math.floor(Math.random() * 81)}`;
+    gameDiv.style.left = `${Math.floor(Math.random() * 81)}`;
 
     let label = ["sweetSpot", "backBoard", "hoop"];
     
