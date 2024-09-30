@@ -190,7 +190,6 @@ function moveImg(x, y, ev)
 
         if(ballY == ballBottom)
         {
-            alert(`${x}: ${left}, ${y}: ${top}`);
             setDoc(`Accounts/${user}/plays`, plays - 1);
 
             if(ev.target.id == "sweetSpot")

@@ -275,6 +275,11 @@ button
     width: 6%;
 }
 
+#sweetSpot
+{
+    width: 6%;
+}
+
 #ball:-webkit-drag
 {
     position: relative;
