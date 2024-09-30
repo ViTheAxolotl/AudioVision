@@ -205,7 +205,7 @@ function moveImg(x, y, ev)
             }
             
             handleViewTokens(ball);
-            reload(2000);
+            reload(2);
             setDoc(`Accounts/${user}/plays`, plays - 1);
         }
 
