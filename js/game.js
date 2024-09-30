@@ -153,8 +153,10 @@ function handleStopDrag(ev)
 
 function moveImg(x, y, ev)
 {
-    let top = parseFloat(getComputedStyle(ball).top.replace("px", ''));
-    let left = parseFloat(getComputedStyle(ball).left.replace("px", ''));
+    let top = parseInt(getComputedStyle(ball).top.replace("px", ''));
+    let left = parseInt(getComputedStyle(ball).left.replace("px", ''));
+    x = parseInt(`${x}`);
+    y = parseInt(`${y}`);
 
     if(!gravity)
     {
