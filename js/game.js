@@ -154,6 +154,7 @@ function handleStopDrag(ev)
 function moveImg(x, y, ev)
 {
     let top = parseInt(getComputedStyle(ball).top.replace("px", ''));
+    let bottom = parseInt(getComputedStyle(ball).bottom.replace("px", ''));
     let left = parseInt(getComputedStyle(ball).left.replace("px", ''));
     x = parseInt(`${x}`);
     y = parseInt(`${y}`);
@@ -183,7 +184,7 @@ function moveImg(x, y, ev)
     {
         ball.style.top = `${top + 1}px`;
 
-        if(top == parseFloat(getComputedStyle(ball.parentElement.parentElement).top.replace("px", '')))
+        if(bottom == parseFloat(getComputedStyle(ball.parentElement.parentElement).bottom.replace("px", '')))
         {
             setDoc(`Accounts/${user}/plays`, plays - 1);
 
@@ -202,7 +203,7 @@ function moveImg(x, y, ev)
 
         else
         {
-            setTimeout(function(){moveImg(x, y, ev)}, 10);
+            setTimeout(function(){moveImg(x, y, ev)}, 1);
         }
     }
 }
