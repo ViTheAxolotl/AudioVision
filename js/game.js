@@ -153,7 +153,7 @@ function handleStopDrag(ev)
 
 function moveImg(x, y, ev)
 {
-    let bottom = parseFloat(getComputedStyle(ball).bottom.replace("px", ''));
+    let top = parseFloat(getComputedStyle(ball).top.replace("px", ''));
     let left = parseFloat(getComputedStyle(ball).left.replace("px", ''));
 
     if(!gravity)
@@ -161,10 +161,10 @@ function moveImg(x, y, ev)
         if(x < left){ball.style.left = `${left - 1}px`;} 
         else if(x > left){ball.style.left = `${left + 1}px`;}
 
-        if(y < bottom){ball.style.bottom = `${bottom - 1}px`;} 
-        else if(y > bottom){ball.style.bottom = `${bottom + 1}px`;}
+        if(y < top){ball.style.top = `${top - 1}px`;} 
+        else if(y > top){ball.style.top = `${top + 1}px`;}
         
-        if(x == left && y == bottom)
+        if(x == left && y == top)
         {
             gravity = true;
             if(ev.target.id == "sweetSpot"){document.getElementById("hoop").style.zIndex = "1000";}
@@ -179,9 +179,9 @@ function moveImg(x, y, ev)
     
     else
     {
-        ball.style.bottom = `${bottom - 1}px`;
+        ball.style.top = `${top + 1}px`;
 
-        if(bottom == parseFloat(getComputedStyle(ball.parentElement.parentElement).bottom.replace("px", '')))
+        if(top == parseFloat(getComputedStyle(ball.parentElement.parentElement).top.replace("px", '')))
         {
             setDoc(`Accounts/${user}/plays`, plays - 1);
 
