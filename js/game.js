@@ -204,7 +204,7 @@ function moveImg(x, y, ev)
                 img.src = "images/incorrect.png";
             }
             
-            handleViewTokens(this);
+            handleViewTokens(ball);
             reload(1000);
             setDoc(`Accounts/${user}/plays`, plays - 1);
         }
