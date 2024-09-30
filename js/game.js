@@ -2,7 +2,7 @@
 
 import { ref, onValue } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js';
 import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-import { toTitleCase, auth, database, setDoc, placeBefore, playSound, reload } from './viMethods.js';
+import { toTitleCase, auth, database, setDoc, placeBefore, playSound, reload, handleViewTokens } from './viMethods.js';
 
 /**
  * When anything under this changes it will use onValue
@@ -191,19 +191,22 @@ function moveImg(x, y, ev)
 
         if(ballY == ballBottom)
         {
-            setDoc(`Accounts/${user}/plays`, plays - 1);
+            let img = document.getElementById("changeImg");
+            img.style.display = "block";
 
             if(ev.target.id == "sweetSpot")
             {
-                alert("correct");
-                reload(1);
+                img.src = "images/correct.png";
             }
-        
+
             else
             {
-                alert("incorrect");
-                reload(1);
+                img.src = "images/incorrect.png";
             }
+            
+            handleViewTokens(this);
+            reload(1000);
+            setDoc(`Accounts/${user}/plays`, plays - 1);
         }
 
         else
