@@ -88,6 +88,7 @@ function navBarSetup()
                         Catagories
                     </a>
                     <ul class="dropdown-menu bg-dark" aria-labelledby="navbarScrollingDropdown">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="${mainLocation}match.html?alphabet">Alphabet</a></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="${mainLocation}match.html?household">Household</a></li>
                     </ul>
                 </li>
