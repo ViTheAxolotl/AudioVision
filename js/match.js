@@ -63,6 +63,7 @@ function init()
         category = category.split("?");
         category = category[1];
         setDoc(`Accounts/${user}/category`, category);
+        setDoc(`Accounts/${user}/lastCategory`, category);
 
         categoryRef = ref(database, `${category}/`);
         onValue(categoryRef, (snapshot) => 
@@ -186,12 +187,11 @@ function handleImageClick()
     if(buttons[this.id].correct)
     {
         img.src = "images/correct.png";
-        let plays = document.getElementsByClassName("imgBtn").length;
+        let plays = document.getElementsByClassName("imgBtn").length - 2;
 
         setDoc(`Accounts/${user}/${category}/numCorrect`, currentNumCorrect + 1);
         setDoc(`Accounts/${user}/isGame`, true);
         setDoc(`Accounts/${user}/plays`, plays);
-        setDoc(`Accounts/${user}/lastCategory`, category);
         
         if(!wholeAccounts[user]["game"]){setDoc(`Accounts/${user}/game`, "basketBall");}
     }
