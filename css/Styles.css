@@ -273,7 +273,7 @@ button
     left: 50%;
     transform: translateX(-50%);
     width: 6%;
-    min-width: 70px;
+    min-width: 137px;
 }
 
 #sweetSpot
@@ -290,6 +290,7 @@ button
 .hoop
 {
     width: 33vh;
+    min-width: 137px;
 }
 
 @media (max-width: 1399px) 
