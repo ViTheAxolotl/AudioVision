@@ -273,7 +273,7 @@ button
     left: 50%;
     transform: translateX(-50%);
     width: 6%;
-    min-width: 100px;
+    min-width: 70px;
 }
 
 #sweetSpot
