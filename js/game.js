@@ -125,17 +125,27 @@ function beginBasketBall()
     ball.src = "images/game/basketball.jpg";
     ball.style.zIndex = "10";
     ball.style.touchAction = "none";
-    /*ball.setAttribute('draggable', true);
-    ball.addEventListener('dragstart', function(ev){ballDrag = true; ev.dataTransfer.effectAllowed = 'move'; startPos = [ev.x, ev.y];});
+    ball.setAttribute('draggable', true);
+    ball.addEventListener('dragstart', function(ev){startDrag(ev)});
     ball.addEventListener('drop', function(ev){ev.preventDefault();});
-    ball.ondrop = function(ev){ev.preventDefault();};*/
+    ball.ondrop = function(ev){ev.preventDefault();};
 
-    document.addEventListener('touchstart', function(ev){if(ev.target.src.includes("ball")){ev.preventDefault; ballDrag = true; startPos = [ev.changedTouches[0].pageX, ev.changedTouches[0].pageY];}});
+    document.addEventListener('touchstart',function(ev){startDrag(ev)});
     document.getElementById("match").addEventListener("touchend", handleStopDrag);
     document.getElementById("match").addEventListener("drop", handleStopDrag);
     document.getElementById("match").addEventListener("dragover", allowDrop);
     div.appendChild(gameDiv);
     div.appendChild(ball);
+}
+
+function startDrag(ev)
+{
+    if(ev.target.src.includes("ball"))
+    {
+        ev.preventDefault; 
+        ballDrag = true; 
+        startPos = [ev.changedTouches[0].pageX, ev.changedTouches[0].pageY];
+    }
 }
 
 function allowDrop(ev) 
@@ -157,6 +167,8 @@ function handleStopDrag(ev)
 
 function moveImg(x, y, ev)
 {
+    let sweetSpot = document.getElementById("sweetSpot");
+    sweetSpot = sweetSpot.getBoundingClientRect();
     let ballPos = ball.getBoundingClientRect();
     let ballX = parseInt(`${ballPos.x}`);
     let ballY = parseInt(`${ballPos.y}`);
@@ -196,9 +208,12 @@ function moveImg(x, y, ev)
             let img = document.getElementById("changeImg");
             img.style.display = "block";
 
-            if(ev.target.id == "sweetSpot")
+            if(sweetSpot.left < x && x < sweetSpot.right)
             {
-                img.src = "images/correct.png";
+                if(sweetSpot.top < y && y > sweetSpot.bottom)
+                {
+                    img.src = "images/correct.png";
+                }
             }
 
             else
