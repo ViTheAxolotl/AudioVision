@@ -189,7 +189,7 @@ function moveImg(x, y, ev)
         if(x == ballX && y == ballY)
         {
             gravity = true;
-            if(ev.target.id == "sweetSpot"){document.getElementById("hoop").style.zIndex = "1000";}
+            if((sweetSpot.left < x && x < sweetSpot.right) && (sweetSpot.top < y && y < sweetSpot.bottom)){document.getElementById("hoop").style.zIndex = "1000";}
             moveImg(x, y, ev);
         }
 
