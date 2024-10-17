@@ -55,6 +55,7 @@ let startPos = [];
 let ball;
 let gravity = false;
 let ballBottom = undefined;
+let ballDrag = false;
 
 /**
  * Runs when user is logged in sets up category
@@ -123,12 +124,12 @@ function beginBasketBall()
     ball.id = "ball";
     ball.src = "images/game/basketball.jpg";
     ball.style.zIndex = "10";
-    ball.setAttribute('draggable', true);
-    ball.addEventListener('dragstart', function(ev){ev.dataTransfer.setData('text/plain', 'ball'); ev.dataTransfer.effectAllowed = 'move'; startPos = [ev.x, ev.y];});
+    /*ball.setAttribute('draggable', true);
+    ball.addEventListener('dragstart', function(ev){ballDrag = true; ev.dataTransfer.effectAllowed = 'move'; startPos = [ev.x, ev.y];});
     ball.addEventListener('drop', function(ev){ev.preventDefault();});
-    ball.ondrop = function(ev){ev.preventDefault();};
+    ball.ondrop = function(ev){ev.preventDefault();};*/
 
-    document.addEventListener('touchstart', function(ev){if(ev.target.src.includes("ball")){ev.preventDefault; ev.dataTransfer.setData('text/plain', 'ball'); ev.dataTransfer.effectAllowed = 'move'; startPos = [ev.x, ev.y];}});
+    document.addEventListener('touchstart', function(ev){if(ev.target.src.includes("ball")){ev.preventDefault; ballDrag = true; startPos = [ev.x, ev.y];}});
     document.getElementById("match").addEventListener("touchend", handleStopDrag);
     document.getElementById("match").addEventListener("drop", handleStopDrag);
     document.getElementById("match").addEventListener("dragover", allowDrop);
@@ -143,9 +144,7 @@ function allowDrop(ev)
 
 function handleStopDrag(ev)
 {
-    const data = ev.dataTransfer.getData("text");
-
-    if(data.includes("ball"))
+    if(ballDrag)
     {
         ball = document.getElementById("ball");
         ev.preventDefault();
