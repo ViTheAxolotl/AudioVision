@@ -208,12 +208,9 @@ function moveImg(x, y, ev)
             let img = document.getElementById("changeImg");
             img.style.display = "block";
 
-            if(sweetSpot.left < x && x < sweetSpot.right)
+            if((sweetSpot.left < x && x < sweetSpot.right) && sweetSpot.top < y && y > sweetSpot.bottom)
             {
-                if(sweetSpot.top < y && y > sweetSpot.bottom)
-                {
-                    img.src = "images/correct.png";
-                }
+                img.src = "images/correct.png";
             }
 
             else
