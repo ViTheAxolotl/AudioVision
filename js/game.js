@@ -127,8 +127,8 @@ function beginBasketBall()
     ball.addEventListener('dragstart', function(ev){ev.dataTransfer.setData('text/plain', 'ball'); ev.dataTransfer.effectAllowed = 'move'; startPos = [ev.x, ev.y];});
     ball.addEventListener('drop', function(ev){ev.preventDefault();});
     ball.ondrop = function(ev){ev.preventDefault();};
-    ball.addEventListener('touchstart', function(ev){ev.preventDefault; ev.dataTransfer.setData('text/plain', 'ball'); ev.dataTransfer.effectAllowed = 'move'; startPos = [ev.x, ev.y];});
 
+    document.addEventListener('touchstart', function(ev){if(ev.target.src.includes("ball")){ev.preventDefault; ev.dataTransfer.setData('text/plain', 'ball'); ev.dataTransfer.effectAllowed = 'move'; startPos = [ev.x, ev.y];}});
     document.getElementById("match").addEventListener("touchend", handleStopDrag);
     document.getElementById("match").addEventListener("drop", handleStopDrag);
     document.getElementById("match").addEventListener("dragover", allowDrop);
