@@ -278,7 +278,8 @@ button
 
 #sweetSpot
 {
-    width: 15%;
+    width: 6%;
+    min-width: 137px;
 }
 
 #ball:-webkit-drag
