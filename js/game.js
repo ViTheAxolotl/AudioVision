@@ -124,6 +124,7 @@ function beginBasketBall()
     ball.id = "ball";
     ball.src = "images/game/basketball.jpg";
     ball.style.zIndex = "10";
+    ball.style.touchAction = "none";
     /*ball.setAttribute('draggable', true);
     ball.addEventListener('dragstart', function(ev){ballDrag = true; ev.dataTransfer.effectAllowed = 'move'; startPos = [ev.x, ev.y];});
     ball.addEventListener('drop', function(ev){ev.preventDefault();});
