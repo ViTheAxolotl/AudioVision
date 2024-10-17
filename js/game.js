@@ -150,7 +150,7 @@ function handleStopDrag(ev)
         ev.preventDefault();
         ball.src = "images/game/basketball.png";
         
-        moveImg(ev.x, ev.y, ev);
+        moveImg(ev.changedTouches[0].pageX, ev.changedTouches[0].pageY, ev);
     }
 }
 
