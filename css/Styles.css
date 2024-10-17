@@ -276,9 +276,14 @@ button
     min-width: 137px;
 }
 
-#sweetSpot, #hoop
+#sweetSpot
 {
     width: 6%;
+    min-width: 137px;
+}
+
+#hoop
+{
     min-width: 137px;
 }
 
