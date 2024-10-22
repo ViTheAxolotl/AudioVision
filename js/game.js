@@ -144,7 +144,8 @@ function startDrag(ev)
     {
         ev.preventDefault; 
         ballDrag = true; 
-        startPos = [ev.changedTouches[0].pageX, ev.changedTouches[0].pageY];
+        if(ev.x){startPos = [ev.x, ev.y];}
+        else{startPos = [ev.changedTouches[0].pageX, ev.changedTouches[0].pageY];}
     }
 }
 
@@ -160,8 +161,8 @@ function handleStopDrag(ev)
         ball = document.getElementById("ball");
         ev.preventDefault();
         ball.src = "images/game/basketball.png";
-        
-        moveImg(ev.changedTouches[0].pageX, ev.changedTouches[0].pageY, ev);
+        if(ev.x){moveImg(ev.x, ev.y);}
+        else{moveImg(ev.changedTouches[0].pageX, ev.changedTouches[0].pageY, ev);}
     }
 }
 
