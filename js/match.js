@@ -93,7 +93,7 @@ function init()
 
 function handleBegin()
 {
-    if(wholeAccounts[user]["isGame"])
+    if(wholeAccounts[user][category]["isGame"])
     {
         window.location.href = "game.html";
     }
@@ -201,8 +201,8 @@ function handleImageClick()
         else if(rewardNeeded >= wholeAccounts[user][category]["rewardDelay"])
         {
             delay = 0;
-            setDoc(`Accounts/${user}/isGame`, true);
-            setDoc(`Accounts/${user}/plays`, plays);
+            setDoc(`Accounts/${user}/${category}/isGame`, true);
+            setDoc(`Accounts/${user}/${category}/plays`, plays);
         }
 
         else{delay = wholeAccounts[user][category]["rewardDelay"] + 1;}

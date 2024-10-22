@@ -72,10 +72,10 @@ function init()
 
             if(plays < 1)
             {
-                setDoc(`Accounts/${user}/isGame`, false);
+                setDoc(`Accounts/${user}/${wholeAccounts[user]["lastCategory"]}/isGame`, false);
             }
 
-            if(!wholeAccounts[user]["isGame"])
+            if(!wholeAccounts[user][wholeAccounts[user]["lastCategory"]]["isGame"])
             {
                 window.location.href = `match.html?${wholeAccounts[user]["lastCategory"]}`;
             }
@@ -223,7 +223,7 @@ function moveImg(x, y, ev)
             
             handleViewTokens(ball);
             reload(2);
-            setDoc(`Accounts/${user}/plays`, plays - 1);
+            setDoc(`Accounts/${user}/${wholeAccounts[user]["lastCategory"]}/plays`, plays - 1);
         }
 
         else
