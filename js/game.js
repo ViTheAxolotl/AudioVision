@@ -64,7 +64,7 @@ function init()
 {
     if(Object.keys(wholeAccounts).length > 0 && user)
     {
-        playsRef = ref(database, `Accounts/${user}/plays`);
+        playsRef = ref(database, `Accounts/${user}/${wholeAccounts[user]["lastCategory"]}/plays`);
         onValue(playsRef, (snapshot) => 
         {
             let txt = display.innerHTML;
