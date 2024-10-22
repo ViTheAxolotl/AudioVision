@@ -179,6 +179,7 @@ function moveImg(x, y, ev)
     let left = parseInt(getComputedStyle(ball).left.replace("px", ''));
     x = parseInt(`${x}`);
     y = parseInt(`${y}`);
+    let width = ball.width;
 
     if(!gravity)
     {
