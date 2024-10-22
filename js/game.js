@@ -191,7 +191,7 @@ function moveImg(x, y, ev)
         if(x == ballX && y == ballY)
         {
             gravity = true;
-            if((sweetSpot.left < x * 2 && x * 2 < sweetSpot.right) && (sweetSpot.top < y / .75 && y / .75 < sweetSpot.bottom)){document.getElementById("hoop").style.zIndex = "1000";}
+            if((sweetSpot.left < x + (width / 2) && x + (width / 2) < sweetSpot.right) && (sweetSpot.top < y + (width * .75) && y + (width * .75) < sweetSpot.bottom)){document.getElementById("hoop").style.zIndex = "1000";}
             moveImg(x, y, ev);
         }
 
@@ -210,7 +210,7 @@ function moveImg(x, y, ev)
             let img = document.getElementById("changeImg");
             img.style.display = "block";
 
-            if((sweetSpot.left < x * 2 && x * 2 < sweetSpot.right) && (sweetSpot.top < y / 2 && y / 2 < sweetSpot.bottom))
+            if((sweetSpot.left < x + (width / 2) && x + (width / 2) < sweetSpot.right) && (sweetSpot.top < y + (width * .75) && y + (width * .75) < sweetSpot.bottom))
             {
                 img.src = "images/correct.png";
             }
