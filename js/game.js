@@ -162,8 +162,8 @@ function handleStopDrag(ev)
         let width = ball.width;
         ev.preventDefault();
         ball.src = "images/game/basketball.png";
-        if(ev.x){moveImg(ev.x - (width / 2), ev.y - width, ev);}
-        else{moveImg(ev.changedTouches[0].pageX - (width / 2), ev.changedTouches[0].pageY - width, ev);}
+        if(ev.x){moveImg(ev.x - (width / 2), ev.y - (width * .75), ev);}
+        else{moveImg(ev.changedTouches[0].pageX - (width / 2), ev.changedTouches[0].pageY - (width * .75), ev);}
     }
 }
 
