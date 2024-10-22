@@ -196,8 +196,8 @@ function handleImageClick()
 
         setDoc(`Accounts/${user}/${category}/numCorrect`, currentNumCorrect + 1);
 
-        if(wholeAccounts[user][category]["rewardDelay"]){delay = 1;}
-        
+        if(!wholeAccounts[user][category]["rewardDelay"]){delay = 1;}
+
         else if(rewardNeeded == wholeAccounts[user][category]["rewardDelay"])
         {
             delay = 0;
