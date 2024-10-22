@@ -72,7 +72,7 @@ function init()
 
             if(plays < 1)
             {
-                setDoc(`Accounts/${user}/${wholeAccounts[user]["lastCategory"]}/isGame`, false);
+                setDoc(`Accounts/${user}/${wholeAccounts[user]["lastCategory"]}/isGame`, false); 
             }
 
             if(!wholeAccounts[user][wholeAccounts[user]["lastCategory"]]["isGame"])
