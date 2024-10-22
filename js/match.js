@@ -198,7 +198,7 @@ function handleImageClick()
 
         if(!wholeAccounts[user][category]["rewardDelay"]){delay = 1;}
 
-        else if(rewardNeeded == wholeAccounts[user][category]["rewardDelay"])
+        else if(rewardNeeded >= wholeAccounts[user][category]["rewardDelay"])
         {
             delay = 0;
             setDoc(`Accounts/${user}/isGame`, true);
