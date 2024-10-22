@@ -159,10 +159,11 @@ function handleStopDrag(ev)
     if(ballDrag)
     {
         ball = document.getElementById("ball");
+        let width = ball.width / 2;
         ev.preventDefault();
         ball.src = "images/game/basketball.png";
-        if(ev.x){moveImg(ev.x, ev.y);}
-        else{moveImg(ev.changedTouches[0].pageX, ev.changedTouches[0].pageY, ev);}
+        if(ev.x){moveImg(ev.x - width, ev.y - width, ev);}
+        else{moveImg(ev.changedTouches[0].pageX - width, ev.changedTouches[0].pageY - width, ev);}
     }
 }
 
