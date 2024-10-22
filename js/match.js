@@ -52,6 +52,7 @@ let firstRunAccount = true;
 let snd = new Audio();
 let size;
 let currentNumCorrect;
+let rewardNeeded;
 
 /**
  * Runs when user is logged in sets up category
@@ -147,6 +148,7 @@ function getRandomItems()
         case 2:
             numOfItems = 2;
             size = "twoOptions";
+            rewardNeeded = 4;
             break;
         
         case 3:
@@ -154,11 +156,13 @@ function getRandomItems()
         case 5:
             numOfItems = 3;
             size = "threeOptions";
+            rewardNeeded = 3;
             break;
 
         default:
             numOfItems = 4;
             size = "fourOptions";
+            rewardNeeded = 2;
             break;
     }
     
@@ -188,10 +192,21 @@ function handleImageClick()
     {
         img.src = "images/correct.png";
         let plays = document.getElementsByClassName("imgBtn").length - 2;
+        let delay;
 
         setDoc(`Accounts/${user}/${category}/numCorrect`, currentNumCorrect + 1);
-        setDoc(`Accounts/${user}/isGame`, true);
-        setDoc(`Accounts/${user}/plays`, plays);
+
+        if(wholeAccounts[user][category]["rewardDelay"]){delay = 1;}
+        
+        else if(rewardNeeded == wholeAccounts[user][category]["rewardDelay"])
+        {
+            delay = 0;
+            setDoc(`Accounts/${user}/isGame`, true);
+            setDoc(`Accounts/${user}/plays`, plays);
+        }
+
+        else{delay = wholeAccounts[user][category]["rewardDelay"] + 1;}
+        setDoc(`Accounts/${user}/${category}/rewardDelay`, delay);
         
         if(!wholeAccounts[user]["game"]){setDoc(`Accounts/${user}/game`, "basketBall");}
     }
