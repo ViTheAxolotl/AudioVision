@@ -236,6 +236,7 @@ export function hideCover()
  */
 export function playSound(sound, player)
 {
+    player.pause();
     player.src = sound; //loads the sound
     player.volume = 0.1; //Makes it not so loud
     player.play(); //Plays

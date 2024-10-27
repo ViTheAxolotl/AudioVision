@@ -1,5 +1,4 @@
 "use strict";
-//soundBtn.onclick = function () {playSound(soundBtn.title, snd)};
 
 import { ref, onValue } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js';
 import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
@@ -93,7 +92,7 @@ function displayBtns()
     {
         let btn = document.createElement("button");
         btn.id = item;
-        btn.onclick = handleImageClick;
+        btn.onclick = function () {playSound(btn.classList[btn.classList.length - 1], snd)};
         btn.classList.add("imgBtn");
         btn.classList.add("center");
         btn.classList.add(`${wholeButtons[item].sound}`);
