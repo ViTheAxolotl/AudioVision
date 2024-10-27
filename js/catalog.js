@@ -39,6 +39,7 @@ onAuthStateChanged(auth, (person) =>
 
 let user;
 let wholeAll = [];
+let wholeButtons = {};
 let div = document.getElementById("match");
 let snd = new Audio();
 let displayBtn = document.getElementsByClassName("displayBtn");
@@ -63,6 +64,46 @@ function handleDisplayCategory()
     {
         btn.classList.remove("selected");
     }
-    
+
     this.classList.add("selected");
+
+    Ref = ref(database, `${this.id}`);
+    onValue(allRef, (snapshot) => 
+    {
+        const data = snapshot.val();
+        wholeButtons = data;
+
+        displayBtns();
+    });
+}
+
+function displayBtns()
+{
+    let catalog = document.getElementById("catalog");
+    
+    if(catalog)
+    {
+        catalog.remove();
+    }
+
+    catalog = document.createElement("div");
+    catalog.id = "catalog";
+
+    for(let item of Object.keys(wholeButtons))
+    {
+        let btn = document.createElement("button");
+        btn.id = item;
+        btn.onclick = handleImageClick;
+        btn.classList.add("imgBtn");
+        btn.classList.add("center");
+        btn.classList.add(`${wholeButtons[item].sound}`);
+
+        let image = document.createElement("img");
+        image.src = wholeButtons[item].src;
+        image.classList.add("fourOptions");
+        btn.appendChild(image);
+        catalog.appendChild(button);
+    }
+
+    div.appendChild(catalog);
 }
