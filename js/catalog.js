@@ -48,8 +48,9 @@ function init()
     {
         let button = document.createElement("button");
         button.classList = "gridButton";
-        button.innerHTML = category;
+        button.innerHTML = toTitleCase(category);
         button.id = category;
+        button.style.margin = "4px";
         button.onclick = handleDisplayCategory;
         div.appendChild(button);
     }
