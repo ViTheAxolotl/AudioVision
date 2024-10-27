@@ -92,6 +92,7 @@ function navBarSetup()
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="${mainLocation}match.html?household">Household</a></li>
                     </ul>
                 </li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="${mainLocation}catalog.html">Catalog</a></li>
                 ${log}
             </ul>
         </div>`;
