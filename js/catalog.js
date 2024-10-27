@@ -41,13 +41,14 @@ let user;
 let wholeAll = [];
 let div = document.getElementById("match");
 let snd = new Audio();
+let displayBtn = document.getElementsByClassName("displayBtn");
 
 function init()
 {
     for(let category of wholeAll)
     {
         let button = document.createElement("button");
-        button.classList = "gridButton";
+        button.classList = "gridButton displayBtn";
         button.innerHTML = toTitleCase(category);
         button.id = category;
         button.style.margin = "4px";
@@ -58,5 +59,10 @@ function init()
 
 function handleDisplayCategory()
 {
-     
+    for(let btn of displayBtn)
+    {
+        btn.classList.remove("selected");
+    }
+    
+    this.classList.add("selected");
 }
