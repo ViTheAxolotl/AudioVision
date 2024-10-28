@@ -17,6 +17,7 @@ let body = document.getElementsByTagName("body");
 let imageLocation;
 let jsaLocation;
 let mainLocation;
+let wholeAll = "";
 
 const charRef = ref(database, 'playerChar/');
 onValue(charRef, (snapshot) => 
