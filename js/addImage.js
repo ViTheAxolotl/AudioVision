@@ -26,7 +26,7 @@ const allRef = ref(database, 'all/');
 onValue(allRef, (snapshot) => 
 {
     const data = snapshot.val();
-    wholeAll = data["catalog"].split(", ");
+    wholeAll = data["category"].split(", ");
 });
 
 let player;
