@@ -11,7 +11,7 @@ const allRef = ref(database, 'all/');
 onValue(allRef, (snapshot) => 
 {
     const data = snapshot.val();
-    wholeAll = data.split(", ");
+    wholeAll = data["category"].split(", ");
 
     init();
 });
