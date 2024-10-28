@@ -59,21 +59,24 @@ function init()
 
 function handleDisplayCategory()
 {
-    for(let btn of displayBtn)
+    if(!this.classList.contains("selected"))
     {
-        btn.classList.remove("selected");
+        for(let btn of displayBtn)
+        {
+            btn.classList.remove("selected");
+        }
+    
+        this.classList.add("selected");
+    
+        Ref = ref(database, `${this.id}`);
+        onValue(allRef, (snapshot) => 
+        {
+            const data = snapshot.val();
+            wholeButtons = data;
+    
+            displayBtns();
+        });
     }
-
-    this.classList.add("selected");
-
-    Ref = ref(database, `${this.id}`);
-    onValue(allRef, (snapshot) => 
-    {
-        const data = snapshot.val();
-        wholeButtons = data;
-
-        displayBtns();
-    });
 }
 
 function displayBtns()
@@ -101,7 +104,7 @@ function displayBtns()
         image.src = wholeButtons[item].src;
         image.classList.add("fourOptions");
         btn.appendChild(image);
-        catalog.appendChild(button);
+        catalog.appendChild(btn);
     }
 
     div.appendChild(catalog);
