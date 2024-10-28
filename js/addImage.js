@@ -2,7 +2,7 @@
 
 import { ref, onValue } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js';
 import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-import { toTitleCase, auth, database, setDoc, deleteDoc, placeBefore, clenseInput } from './viMethods.js';
+import { toTitleCase, auth, database, setDoc, clenseInput } from './viMethods.js';
 
 /**
  * Checks if user is logged in, if they aren't send them to loginPage
@@ -22,8 +22,16 @@ onAuthStateChanged(auth, (user) =>
     }
 });
 
+const allRef = ref(database, 'all/');
+onValue(allRef, (snapshot) => 
+{
+    const data = snapshot.val();
+    wholeAll = data;
+});
+
 let player;
-let submit = document.getElementById("submit")
+let submit = document.getElementById("submit");
+let wholeAll = "";
 
 /**
  * Runs when user is logged in
@@ -48,7 +56,8 @@ function handleSubmit()
     
     object.sound += sound;
     setDoc(`${category}/${name}`, object);
-    setDoc(`all`, {category});
+    
+    if(!wholeAll.includes(category)) {wholeAll = wholeAll += `, ${category}`; setDoc(`all/category`, wholeAll);}
     alert("Done!");
 }
 
