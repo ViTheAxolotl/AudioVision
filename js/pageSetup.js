@@ -23,8 +23,9 @@ onValue(charRef, (snapshot) =>
 {
     const data = snapshot.val();
     wholeChars = data;
-    navBarSetup();
 });
+
+const allRef = ref(database, 'all/');
 
 if(parentFolder == "noParent")
 {
@@ -87,9 +88,7 @@ function navBarSetup()
                     <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Catagories
                     </a>
-                    <ul class="dropdown-menu bg-dark" aria-labelledby="navbarScrollingDropdown">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="${mainLocation}match.html?alphabet">Alphabet</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="${mainLocation}match.html?household">Household</a></li>
+                    <ul class="dropdown-menu bg-dark" id="dropCategory" aria-labelledby="navbarScrollingDropdown">
                     </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="${mainLocation}catalog.html">Catalog</a></li>
@@ -98,6 +97,27 @@ function navBarSetup()
         </div>`;
 
     if(isLoggedIn){document.getElementById("logoutButton").onclick = logout;}
+    
+    onValue(allRef, (snapshot) => 
+    {
+        let dropDown = document.getElementById("dropCategory");
+        const data = snapshot.val();
+        wholeAll = data["category"].split(", ");
+        
+        for(let category of wholeAll)
+        {
+            let li = document.createElement("li");
+            li.classList.add("nav-item");
+    
+            let a = document.createElement("a");
+            a.classList = "nav-link active";
+            a.ariaCurrent = "page";
+            a.href = `${mainLocation}match.html?${category}`;
+            a.innerHTML = toTitleCase(category);
+            li.appendChild(a);
+            dropDown.appendChild(li);
+        }
+    });
 }
 
 function logout()
