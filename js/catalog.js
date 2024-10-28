@@ -69,7 +69,7 @@ function handleDisplayCategory()
         this.classList.add("selected");
     
         Ref = ref(database, `${this.id}`);
-        onValue(allRef, (snapshot) => 
+        onValue(Ref, (snapshot) => 
         {
             const data = snapshot.val();
             wholeButtons = data;
