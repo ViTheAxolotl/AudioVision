@@ -48,7 +48,7 @@ function handleSubmit()
     
     object.sound += sound;
     setDoc(`${category}/${name}`, object);
-    setDoc(`all`, {category:category});
+    setDoc(`all`, {category});
     alert("Done!");
 }
 
