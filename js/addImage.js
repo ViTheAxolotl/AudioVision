@@ -49,7 +49,8 @@ function handleSubmit()
     
     let object = {
         name : name,
-        src : `images/${category}/${name}.png`,
+        src: `images/alphabet/${name}.png`,
+        //src : `images/${category}/${name}.png`,
         correct : false,
         sound : `sounds/${category}/${name}`
     };
