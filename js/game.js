@@ -56,6 +56,7 @@ let ball;
 let gravity = false;
 let ballBottom = undefined;
 let ballDrag = false;
+let timer = 0;
 
 /**
  * Runs when user is logged in sets up category
@@ -211,6 +212,7 @@ function moveImg(x, y, ev)
             let img = document.getElementById("changeImg");
             img.style.display = "block";
 
+            alert(timer);
             if((sweetSpot.left < x + (width / 2) && x + (width / 2) < sweetSpot.right) && (sweetSpot.top < y + (width * .75) && y + (width * .75) < sweetSpot.bottom))
             {
                 img.src = "images/correct.png";
