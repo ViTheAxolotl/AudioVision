@@ -181,6 +181,7 @@ function moveImg(x, y, ev)
     x = parseInt(`${x}`);
     y = parseInt(`${y}`);
     let width = ball.width;
+    timer++;
 
     if(!gravity)
     {
